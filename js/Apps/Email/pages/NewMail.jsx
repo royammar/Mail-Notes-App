@@ -1,5 +1,5 @@
 import emailService from "../services/emailService.js";
-// import NewMail from "../pages/"
+
 export default class NewMail extends React.Component {
     state={
         subject:'',
@@ -11,7 +11,7 @@ export default class NewMail extends React.Component {
     }
     inputChange =(ev)=>{
         let fieldName = ev.target.name
-        this.setState({[fieldName] : ev.target.value})
+        this.setState({[fieldName]: ev.target.value})
     }
 
     render() {

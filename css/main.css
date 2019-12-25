@@ -5,11 +5,24 @@
 
 }
 
+.emails-container{
+  display: flex;
+}
+
 
 *{
   text-decoration: none;
   list-style: none;
 
+}
+
+.read{
+  color: grey;
+}
+
+.unRead{
+  color: black;
+  font-weight: bold;
 }
 
 .reademail-subject{
@@ -25,10 +38,6 @@
 .from{
   border-bottom: 1px solid black;
 }
-
-/* .delete{
-  
-} */
 
 
 
