@@ -3,6 +3,7 @@ import ModalDialog from './cmps/ModalDialog.jsx'
 import EmailApp from './pages/EmailApp.jsx'
 import EmailPage from './pages/EmailPage.jsx'
 import NavBar from './cmps/NavBar.jsx'
+import NewMail from './pages/NewMail.jsx'
 const Router = ReactRouterDOM.HashRouter
 const { Route, Switch } = ReactRouterDOM
 const { createBrowserHistory } = History
@@ -31,6 +32,7 @@ class App extends React.Component {
                         {/* <Route component={Home} path="/" exact ></Route> */}
                         <Route component={EmailApp} path="/emails" exact></Route>
                         <Route component={EmailPage} path="/emails/:id" exact></Route>
+                        <Route component={NewMail} path="/newmail" exact></Route>
                         {/* <Route component={About} path="/about" exact></Route>
                         <Route component={BookPage} path="/books/:id" exact></Route>
                         <Route render={(props) => <AddNewBook {...props} toggleModal={this.toggleModal} />}

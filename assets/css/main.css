@@ -121,7 +121,7 @@ img{
     transition: all .2s ease-in-out;
 }
 
-
+*/
 img:hover{
     transform: scale(1.1);
 }
@@ -232,4 +232,15 @@ img:hover{
 #cssmenu > ul > li > a:hover:after {
   background: #47c9af;
  
+}
+
+
+/* .sideNavBar{
+
+  display: flex;
 } */
+
+main{
+
+  display: flex;
+}
