@@ -11,13 +11,19 @@ class App extends React.Component {
 
 
    toggleModal = () => {
+
+    
   
 }
+
+
     render() {
         return (
+            
+                    
                 <Router history={history}>
                     <ModalDialog></ModalDialog>
-                    {/* <NavBar></NavBar> */}
+                    <NavBar></NavBar>
                     <main>
                     <Switch>
                         {/* <Route component={Home} path="/" exact ></Route> */}
