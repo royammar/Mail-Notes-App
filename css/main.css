@@ -25,6 +25,11 @@
   font-weight: bold;
 }
 
+.mark-read{
+  background-color: white;
+  border: none;
+}
+
 .reademail-subject{
   font-size: 1.5rem;
   width: 100%;

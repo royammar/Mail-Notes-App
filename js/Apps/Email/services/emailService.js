@@ -133,8 +133,19 @@ function deleteEmail(id) {
 
 // }
 
-function getEmailsToRender() {
-    return gMails
+function getEmailsToRender(filter) {
+    console.log(filter)
+    if(filter.readingState==='read'){
+        return Promise.resolve(gMails.filter(email=>{
+            return email.isRead
+        }))
+    }
+    else if(filter.readingState==='unRead'){
+        return Promise.resolve(gMails.filter(email=>{
+            return !email.isRead
+        }))
+    }
+    else return Promise.resolve(gMails) 
 }
 
 
