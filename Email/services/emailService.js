@@ -1,3 +1,6 @@
+
+import {getRandomID} from "../services/utils";
+
 export default {
     createMail,
     // creatMails,
@@ -6,7 +9,7 @@ export default {
 }
 
 let gMails =[{
-
+    id:'123123',
     subject: 'Wassap?',
     body: 'Pick up!',
     isRead: false,
@@ -14,7 +17,7 @@ let gMails =[{
 },
 
 {
-
+    id:'512515',
     subject: 'Wassap?',
     body: 'Pick up!',
     isRead: false,
@@ -22,7 +25,7 @@ let gMails =[{
 },
 
 {
-
+    id:'51251125',
     subject: 'asdas?',
     body: 'asd!',
     isRead: false,
@@ -30,7 +33,7 @@ let gMails =[{
 },
 
 {
-
+    id:'51251121125',
     subject: 'asdasd?',
     body: 'Pasdp!',
     isRead: false,
@@ -38,7 +41,7 @@ let gMails =[{
 },
 
 {
-
+    id:'5121251121125',
     subject: 'geqg?',
     body: 'Pagp!',
     isRead: false,
@@ -46,7 +49,7 @@ let gMails =[{
 },
 
 {
-
+    id:'3311223',
     subject: 'Wagap?',
     body: 'Pick up!',
     isRead: false,
@@ -54,7 +57,7 @@ let gMails =[{
 },
 
 {
-
+    id:'331211223',
     subject: 'agap?',
     body: 'Pick up!',
     isRead: false,
@@ -65,6 +68,7 @@ let gMails =[{
 
 function createMail(subject,body) {
     let newMail={
+        id:getRandomID(),
         subject:subject,
         body : body,
         isread :false,
