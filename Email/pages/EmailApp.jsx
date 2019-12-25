@@ -7,7 +7,7 @@ export default class EmailApp extends React.Component {
         books:[]
     }
     
-    componentDidMount (){
+    componentDidMount (){        
         this.loadEmails()
     }
 

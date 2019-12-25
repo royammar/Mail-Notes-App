@@ -12,6 +12,15 @@
 
 }
 
+.read{
+  color: grey;
+}
+
+.unRead{
+  color: black;
+  font-weight: bold;
+}
+
 .reademail-subject{
   font-size: 1.5rem;
   width: 100%;
@@ -27,7 +36,7 @@
 }
 
 .delete{
-  
+
 }
 
 

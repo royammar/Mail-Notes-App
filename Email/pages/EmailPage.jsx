@@ -7,7 +7,10 @@ export default class EmailPage extends React.Component {
     }
 
     componentDidMount() {
-        this.loadEmail()
+        emailService.changeEmailToRead(this.props.match.params.id)
+        .then(res=>this.loadEmail())
+        // this.loadEmail()
+        
     }
     componentDidUpdate(prevProps) {
 
@@ -18,8 +21,8 @@ export default class EmailPage extends React.Component {
     }
 
     loadEmail() {       
-        emailService.getEmailById(this.props.match.params.id).then(email => this.setState({ email }))       
-        
+        emailService.getEmailById(this.props.match.params.id)              
+        .then(email => this.setState({ email }))        
        
     }
 

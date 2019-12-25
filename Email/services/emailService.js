@@ -6,7 +6,8 @@ export default {
     // creatMails,
     getEmailsToRender, 
     getEmailById,
-    deleteEmail
+    deleteEmail,
+    changeEmailToRead
 }
 
 let gMails =[{
@@ -81,8 +82,20 @@ function createMail(subject,body) {
 
 
 function getEmailById(id){
-   const curEmail= gMails.find(email=>email.id===id)
+   const curEmail= gMails.find(email=>email.id===id)   
    return Promise.resolve(curEmail)
+}
+
+function changeEmailToRead(id){
+    let readEmail=gMails.find(email=>email.id===id)
+    // console.log(readEmail)   
+    readEmail={...readEmail} 
+    if(readEmail.isRead===false){        
+        readEmail.isRead=true}  
+    gMails=gMails.map(email=>email.id===id?readEmail:email)
+    console.log(gMails)
+    return Promise.resolve(gMails)   
+
 }
 
 function deleteEmail(id){
