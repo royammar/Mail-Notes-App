@@ -78,7 +78,9 @@ return newMail
 }
 
 function getEmailById(id){
-   const curEmail= gBooks.find(email=>email.id===id)
+    console.log('asdas');
+    
+   const curEmail= gMails.find(email=>email.id===id)
    return Promise.resolve(curEmail)
 }
 

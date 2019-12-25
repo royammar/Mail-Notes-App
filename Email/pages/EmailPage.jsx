@@ -1,14 +1,15 @@
-// import BookDetails from '../cmps/BookDetails.jsx'
+
 import emailService from "../services/emailService";
-export default class BookPage extends React.Component {
+export default class EmailPage extends React.Component {
 
     state = {
-        book: null
+        email: null
     }
 
     componentDidMount() {
+        console.log('hi');
+        
         this.loadEmail()
-
     }
 
     componentDidUpdate(prevProps) {
@@ -20,7 +21,10 @@ export default class BookPage extends React.Component {
     }
 
     loadEmail() {
+       
         emailService.getEmailById(this.props.match.params.id).then(email => this.setState({ email }))
+        
+        
         // BookService.getBookById(this.props.match.params.id).then(book => this.setState({ book }))
     }
 
@@ -48,12 +52,11 @@ export default class BookPage extends React.Component {
 
 
     render() {
-        return <React.Fragment>
-            <div>{this.state.email.subject}</div>
-
+        return ( this.state.email && <React.Fragment>
+               <div>{this.state.email.subject}</div>
             {/* <button onClick={()=>this.handlechangeBook(1)}>next</button>
                 <button onClick={()=>this.handlechangeBook(-1)}>previous</button> */}
-        </React.Fragment>
+        </React.Fragment> )
     }
 
 }
