@@ -2,7 +2,6 @@
 import ModalDialog from './cmps/ModalDialog.jsx'
 import EmailApp from './pages/EmailApp.jsx'
 import NavBar from './cmps/NavBar.jsx'
-// import NavBar from './pages/EmailApp.jsx'
 const Router = ReactRouterDOM.HashRouter
 const { Route, Switch } = ReactRouterDOM
 const { createBrowserHistory } = History
