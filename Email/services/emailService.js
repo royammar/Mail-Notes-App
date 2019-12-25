@@ -1,7 +1,8 @@
 export default {
     createMail,
     // creatMails,
-    getEmailsToRender
+    getEmailsToRender, 
+    getEmailById
 }
 
 let gMails =[{
@@ -70,6 +71,11 @@ function createMail(subject,body) {
         sentAt : Date.now()
     }
 return newMail
+}
+
+function getEmailById(id){
+   const curEmail= gBooks.find(email=>email.id===id)
+   return Promise.resolve(curEmail)
 }
 
 
