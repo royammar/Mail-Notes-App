@@ -1,5 +1,5 @@
 import emailService from "../services/emailService.js";
-
+// import NewMail from "../pages/"
 export default class NewMail extends React.Component {
     state={
         subject:'',

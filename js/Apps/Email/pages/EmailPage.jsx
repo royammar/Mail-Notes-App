@@ -8,6 +8,7 @@ export default class EmailPage extends React.Component {
 
     componentDidMount() {
         this.loadEmail()
+        
     }
     componentDidUpdate(prevProps) {
 

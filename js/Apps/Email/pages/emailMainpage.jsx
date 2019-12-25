@@ -1,16 +1,16 @@
 
-import ModalDialog from './cmps/ModalDialog.jsx'
-import EmailApp from './pages/EmailApp.jsx'
-import EmailPage from './pages/EmailPage.jsx'
-import NavBar from './cmps/NavBar.jsx'
-import NewMail from './pages/NewMail.jsx'
+import ModalDialog from '../cmps/ModalDialog.jsx'
+import EmailApp from './EmailApp.jsx'
+import EmailPage from './EmailPage.jsx'
+import NavBar from '../cmps/NavBar.jsx'
+import NewMail from './NewMail.jsx'
 const Router = ReactRouterDOM.HashRouter
 const { Route, Switch } = ReactRouterDOM
 const { createBrowserHistory } = History
-const history = createBrowserHistory()
+// const history = createBrowserHistory()
 
 
-class App extends React.Component {
+export default class App extends React.Component {
 
 
    toggleModal = () => {
@@ -22,11 +22,9 @@ class App extends React.Component {
 
     render() {
         return (
-            
-                    
-                <Router history={history}>
+                    <Router history={history}>
                     <ModalDialog></ModalDialog>
-                    <NavBar></NavBar>
+                    {/* <NavBar></NavBar> */}
                     <main>
                     <Switch>
                         {/* <Route component={Home} path="/" exact ></Route> */}

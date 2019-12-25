@@ -1,5 +1,5 @@
 
-import {getRandomID} from "../services/utils.js";
+import {getRandomID} from "../../../services/utils.js";
 
 export default {
     createMail,

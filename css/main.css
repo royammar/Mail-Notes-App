@@ -26,9 +26,9 @@
   border-bottom: 1px solid black;
 }
 
-.delete{
+/* .delete{
   
-}
+} */
 
 
 
@@ -265,4 +265,10 @@ img:hover{
 main{
 
   display: flex;
+}
+
+.emailNav{
+display: flex;
+flex-direction: row;
+
 }
