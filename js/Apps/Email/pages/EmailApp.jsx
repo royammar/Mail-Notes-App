@@ -4,7 +4,7 @@ import EmailList from "../cmps/EmailList.jsx"
 export default class EmailApp extends React.Component {
 
     state={
-        books:[]
+        emails:[]
     }
     
     componentDidMount (){        
@@ -13,13 +13,17 @@ export default class EmailApp extends React.Component {
 
 
     loadEmails=()=>{
-        this.setState({books:emailService.getEmailsToRender()})
+        this.setState({emails:emailService.getEmailsToRender()})
     }
+
+    
+
+    
 
 
 
     render() {
-    return ( (this.state.books) ? <EmailList emails={this.state.books}></EmailList> : "No Emails"
+    return ( (this.state.emails) ? <EmailList updateEmails={this.loadEmails} emails={this.state.emails} changeReadState={this.changeReadState}></EmailList> : "No Emails"
         //filter
      )
     }

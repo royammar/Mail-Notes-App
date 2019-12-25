@@ -104,8 +104,8 @@ function changeReadState(id) {
     curEmail = { ...curEmail }
     curEmail.isRead=!curEmail.isRead
     gMails = gMails.map(email => email.id === id ? curEmail : email)
-    console.log(gMails)
-    // return Promise.resolve(gMails)
+    // console.log(gMails)
+    return Promise.resolve(gMails)
 
 }
 
