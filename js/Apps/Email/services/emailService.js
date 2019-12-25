@@ -73,7 +73,7 @@ function createMail(subject, body) {
         id: getRandomID(),
         subject: subject,
         body: body,
-        isread: false,
+        isRead: false,
         sentAt: Date.now()
     }
     gMails = [newMail,...gMails]

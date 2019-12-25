@@ -9,7 +9,6 @@ export default class EmailPage extends React.Component {
     componentDidMount() {
         emailService.changeEmailToRead(this.props.match.params.id)
             .then(res => this.loadEmail())
-            console.log(this.state.email);
 
     }
     componentDidUpdate(prevProps) {
