@@ -19,6 +19,9 @@ export default class EmailPage extends React.Component {
             this.loadEmail()
         }
     }
+    componentWillUnmount(){
+        console.log('lalal')
+    }
 
     loadEmail() {
         emailService.getEmailById(this.props.match.params.id)

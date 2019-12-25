@@ -73,7 +73,7 @@ function createMail(subject, body) {
         id: getRandomID(),
         subject: subject,
         body: body,
-        isread: false,
+        isRead: false,
         sentAt: Date.now()
     }
     gMails = [newMail,...gMails]
@@ -104,8 +104,8 @@ function changeReadState(id) {
     curEmail = { ...curEmail }
     curEmail.isRead=!curEmail.isRead
     gMails = gMails.map(email => email.id === id ? curEmail : email)
-    console.log(gMails)
-    // return Promise.resolve(gMails)
+    // console.log(gMails)
+    return Promise.resolve(gMails)
 
 }
 
