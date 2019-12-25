@@ -4,11 +4,33 @@
 
 
 }
+
+
 *{
   text-decoration: none;
   list-style: none;
 
 }
+
+.reademail-subject{
+  font-size: 1.5rem;
+  width: 100%;
+  border-bottom: 1px solid black;
+  display: flex;
+  justify-content:space-between
+
+
+}
+
+.from{
+  border-bottom: 1px solid black;
+}
+
+.delete{
+  
+}
+
+
 
 /* html{
 

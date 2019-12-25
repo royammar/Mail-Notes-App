@@ -1,4 +1,4 @@
-// import BookDetails from '../cmps/BookDetails.jsx'
+
 import emailService from "../services/emailService";
 export default class EmailPage extends React.Component {
 
@@ -7,8 +7,9 @@ export default class EmailPage extends React.Component {
     }
 
     componentDidMount() {
+        console.log('hi');
+        
         this.loadEmail()
-
     }
 
     componentDidUpdate(prevProps) {
@@ -19,10 +20,10 @@ export default class EmailPage extends React.Component {
         }
     }
 
-    loadEmail() {
-        console.log('bla')
-        emailService.getEmailById(this.props.match.params.id).then(email => this.setState({ email }))
-        // BookService.getBookById(this.props.match.params.id).then(book => this.setState({ book }))
+    loadEmail() {       
+        emailService.getEmailById(this.props.match.params.id).then(email => this.setState({ email }))       
+        
+       
     }
 
     // onBackClick = () => {
@@ -46,15 +47,24 @@ export default class EmailPage extends React.Component {
     //     BookService.changePage(diff,this.state.book.id).then(bookIdShow=>this.props.history.push(`/books/${bookIdShow}`))
 
     // }
+    onDelete=(id)=>{        
+        emailService.deleteEmail(id).then(res=>this.setState({book:null})).then(res=>this.props.history.push('/emails'))
+
+    }
 
 
     render() {
-        return <React.Fragment>
-            <div>jhhhjhj</div>
-
+        return ( this.state.email && <React.Fragment>
+            <div className="reademail">
+               <div className="reademail-subject">{this.state.email.subject}
+               <button onClick={()=>this.onDelete(this.state.email.id)} className="delete btn">Delete</button>               
+               </div>
+               <div>Yael</div>
+               <div className="from">{this.state.email.body}</div>
+            </div>
             {/* <button onClick={()=>this.handlechangeBook(1)}>next</button>
                 <button onClick={()=>this.handlechangeBook(-1)}>previous</button> */}
-        </React.Fragment>
+        </React.Fragment> )
     }
 
 }
