@@ -1,5 +1,5 @@
 
-import {getRandomID} from "../services/utils";
+import {getRandomID} from "../services/utils.js";
 
 export default {
     createMail,
@@ -75,12 +75,12 @@ function createMail(subject,body) {
         isread :false,
         sentAt : Date.now()
     }
-return newMail
+    gMails=[...gMails,newMail]
+    return Promise.resolve(newMail)
 }
 
+
 function getEmailById(id){
-    console.log('asdas');
-    
    const curEmail= gMails.find(email=>email.id===id)
    return Promise.resolve(curEmail)
 }

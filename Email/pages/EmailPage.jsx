@@ -1,5 +1,5 @@
 
-import emailService from "../services/emailService";
+import emailService from "../services/emailService.js";
 export default class EmailPage extends React.Component {
 
     state = {
@@ -7,11 +7,8 @@ export default class EmailPage extends React.Component {
     }
 
     componentDidMount() {
-        console.log('hi');
-        
         this.loadEmail()
     }
-
     componentDidUpdate(prevProps) {
 
         if (prevProps.match.params.id
