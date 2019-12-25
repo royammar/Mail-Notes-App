@@ -1,11 +1,6 @@
-import BookApp from './pages/BookApp.jsx'
-import NavBar from './cmps/NavBar.jsx'
-import Home from './pages/Home.jsx'
-// import BookDetails from './cmps/BookDetails.jsx'
-import About from './pages/About.jsx'
-import BookPage from './pages/BookPage.jsx'
-import AddNewBook from './pages/AddNewBook.jsx'
+
 import ModalDialog from './cmps/ModalDialog.jsx'
+import EmailApp from './pages/EmailApp.jsx'
 const Router = ReactRouterDOM.HashRouter
 const { Route, Switch } = ReactRouterDOM
 const { createBrowserHistory } = History
@@ -22,15 +17,15 @@ class App extends React.Component {
         return (
                 <Router history={history}>
                     <ModalDialog></ModalDialog>
-                    <NavBar></NavBar>
+                    {/* <NavBar></NavBar> */}
                     <main>
                     <Switch>
-                        <Route component={Home} path="/" exact ></Route>
-                        <Route component={BookApp} path="/books" exact></Route>
-                        <Route component={About} path="/about" exact></Route>
+                        {/* <Route component={Home} path="/" exact ></Route> */}
+                        <Route component={EmailApp} path="/emails" exact></Route>
+                        {/* <Route component={About} path="/about" exact></Route>
                         <Route component={BookPage} path="/books/:id" exact></Route>
                         <Route render={(props) => <AddNewBook {...props} toggleModal={this.toggleModal} />}
-                            path="/AddNewBook" exact></Route>
+                            path="/AddNewBook" exact></Route> */}
                     </Switch>
                     </main>
                 </Router>
