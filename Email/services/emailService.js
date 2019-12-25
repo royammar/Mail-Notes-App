@@ -1,17 +1,18 @@
 
-import {getRandomID} from "../services/utils.js";
+import { getRandomID } from "../services/utils.js";
 
 export default {
     createMail,
     // creatMails,
-    getEmailsToRender, 
+    getEmailsToRender,
     getEmailById,
     deleteEmail,
-    changeEmailToRead
+    changeEmailToRead,
+    changeReadState
 }
 
-let gMails =[{
-    id:'123123',
+let gMails = [{
+    id: '123123',
     subject: 'Wassap?',
     body: 'Pick up!',
     isRead: false,
@@ -19,7 +20,7 @@ let gMails =[{
 },
 
 {
-    id:'512515',
+    id: '512515',
     subject: 'Wassap?',
     body: 'Pick up!',
     isRead: false,
@@ -27,7 +28,7 @@ let gMails =[{
 },
 
 {
-    id:'51251125',
+    id: '51251125',
     subject: 'asdas?',
     body: 'asd!',
     isRead: false,
@@ -35,7 +36,7 @@ let gMails =[{
 },
 
 {
-    id:'51251121125',
+    id: '51251121125',
     subject: 'asdasd?',
     body: 'Pasdp!',
     isRead: false,
@@ -43,7 +44,7 @@ let gMails =[{
 },
 
 {
-    id:'5121251121125',
+    id: '5121251121125',
     subject: 'geqg?',
     body: 'Pagp!',
     isRead: false,
@@ -51,7 +52,7 @@ let gMails =[{
 },
 
 {
-    id:'3311223',
+    id: '3311223',
     subject: 'Wagap?',
     body: 'Pick up!',
     isRead: false,
@@ -59,7 +60,7 @@ let gMails =[{
 },
 
 {
-    id:'331211223',
+    id: '331211223',
     subject: 'agap?',
     body: 'Pick up!',
     isRead: false,
@@ -68,41 +69,52 @@ let gMails =[{
 ]
 
 
-function createMail(subject,body) {
-    let newMail={
-        id:getRandomID(),
-        subject:subject,
-        body : body,
-        isread :false,
-        sentAt : Date.now()
+function createMail(subject, body) {
+    let newMail = {
+        id: getRandomID(),
+        subject: subject,
+        body: body,
+        isread: false,
+        sentAt: Date.now()
     }
-    gMails=[...gMails,newMail]
+    gMails = [...gMails, newMail]
     return Promise.resolve(newMail)
 }
 
 
-function getEmailById(id){
-   const curEmail= gMails.find(email=>email.id===id)   
-   return Promise.resolve(curEmail)
+function getEmailById(id) {
+    const curEmail = gMails.find(email => email.id === id)
+    return Promise.resolve(curEmail)
 }
 
-function changeEmailToRead(id){
-    let readEmail=gMails.find(email=>email.id===id)
+function changeEmailToRead(id) {
+    let readEmail = gMails.find(email => email.id === id)
     // console.log(readEmail)   
-    readEmail={...readEmail} 
-    if(readEmail.isRead===false){        
-        readEmail.isRead=true}  
-    gMails=gMails.map(email=>email.id===id?readEmail:email)
+    readEmail = { ...readEmail }
+    if (readEmail.isRead === false) {
+        readEmail.isRead = true
+    }
+    gMails = gMails.map(email => email.id === id ? readEmail : email)
     console.log(gMails)
-    return Promise.resolve(gMails)   
+    return Promise.resolve(gMails)
 
 }
 
-function deleteEmail(id){
-   const mailsAfterDelete=gMails.filter(mail=>mail.id!==id)
-   gMails=mailsAfterDelete
+function changeReadState(id) {
+    let curEmail = gMails.find(email => email.id === id)
+    curEmail = { ...curEmail }
+    curEmail.isRead=!curEmail.isRead
+    gMails = gMails.map(email => email.id === id ? curEmail : email)
     console.log(gMails)
-    return Promise.resolve(gMails)    
+    // return Promise.resolve(gMails)
+
+}
+
+function deleteEmail(id) {
+    const mailsAfterDelete = gMails.filter(mail => mail.id !== id)
+    gMails = mailsAfterDelete
+    console.log(gMails)
+    return Promise.resolve(gMails)
 }
 
 
@@ -119,7 +131,7 @@ function deleteEmail(id){
 //     gMails.push(createMail('aewfahh','hboiskjv'))
 //     gMails.push(createMail('fdasf','asddghea'))
 //     console.log(gMails);
-    
+
 // }
 
 function getEmailsToRender() {

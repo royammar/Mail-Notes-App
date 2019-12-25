@@ -15,7 +15,7 @@ export default class EmailList extends React.Component {
             <React.Fragment>
                 <div>UnRead Emails: {this.countReadEmails()}</div>
                 <div className="sideNavBar"><button>Compose</button></div>                
-                <div className="email-list">{this.props.emails.sort((email1,email2)=>email1.isRead-email2.isRead).map((email, i) => <EmailPreview email={email} key={i}></EmailPreview>)}</div>
+                <div className="email-list">{this.props.emails.sort((email1,email2)=>email1.isRead-email2.isRead).map((email, i) => <EmailPreview email={email} key={i}></EmailPreview>)} </div>
             </React.Fragment>
         )
     }

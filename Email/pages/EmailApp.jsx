@@ -19,7 +19,7 @@ export default class EmailApp extends React.Component {
 
 
     render() {
-    return ( (this.state.books) ?  <EmailList emails={this.state.books}></EmailList> : "No Emails"
+    return ( (this.state.books) ? <EmailList emails={this.state.books}></EmailList> : "No Emails"
         //filter
      )
     }
