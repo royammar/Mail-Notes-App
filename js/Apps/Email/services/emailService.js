@@ -1,5 +1,5 @@
 
-import {getRandomID} from "../../../services/utils.js";
+import { getRandomID } from "../../../services/utils.js";
 
 export default {
     createMail,
@@ -8,7 +8,9 @@ export default {
     getEmailById,
     deleteEmail,
     changeEmailToRead,
-    changeReadState
+    changeReadState,
+    changeFavoriteState,
+    getFavorites
 }
 
 let gMails = [{
@@ -16,6 +18,7 @@ let gMails = [{
     subject: 'Wassap?',
     body: 'Pick up!',
     isRead: false,
+    isFavorite: false,
     sentAt: 1551133930594
 },
 
@@ -24,6 +27,7 @@ let gMails = [{
     subject: 'Wassap?',
     body: 'Pick up!',
     isRead: false,
+    isFavorite: false,
     sentAt: 1551133930594
 },
 
@@ -32,6 +36,7 @@ let gMails = [{
     subject: 'hi?',
     body: 'how are you  at!',
     isRead: false,
+    isFavorite: false,
     sentAt: 1551133930594
 },
 
@@ -40,6 +45,7 @@ let gMails = [{
     subject: 'what do you want?',
     body: 'i dont want anything!',
     isRead: false,
+    isFavorite: false,
     sentAt: 1551133930594
 },
 
@@ -48,6 +54,7 @@ let gMails = [{
     subject: 'where are you gouing?',
     body: 'Paim going yo eat somethinggp!',
     isRead: false,
+    isFavorite: false,
     sentAt: 1551133930594
 },
 
@@ -56,6 +63,7 @@ let gMails = [{
     subject: 'Wagap?',
     body: 'Pick up!',
     isRead: false,
+    isFavorite: false,
     sentAt: 1551133930594
 },
 
@@ -64,6 +72,7 @@ let gMails = [{
     subject: 'agap?',
     body: 'Pick up!',
     isRead: false,
+    isFavorite: false,
     sentAt: 1551133930594
 },
 ]
@@ -74,9 +83,10 @@ function createMail(subject, body) {
         subject: subject,
         body: body,
         isRead: false,
+        isFavorite: false,
         sentAt: Date.now()
     }
-    gMails = [newMail,...gMails]
+    gMails = [newMail, ...gMails]
     return Promise.resolve(newMail)
 }
 
@@ -88,13 +98,23 @@ function getEmailById(id) {
 
 function changeEmailToRead(id) {
     let readEmail = gMails.find(email => email.id === id)
-    // console.log(readEmail)   
+       
     readEmail = { ...readEmail }
     if (readEmail.isRead === false) {
         readEmail.isRead = true
     }
     gMails = gMails.map(email => email.id === id ? readEmail : email)
-    console.log(gMails)
+    
+    return Promise.resolve(gMails)
+
+}
+
+function changeFavoriteState(id){
+    let curEmail = gMails.find(email => email.id === id)
+    curEmail = { ...curEmail }
+    curEmail.isFavorite = !curEmail.isFavorite
+    gMails = gMails.map(email => email.id === id ? curEmail : email)
+    
     return Promise.resolve(gMails)
 
 }
@@ -102,11 +122,16 @@ function changeEmailToRead(id) {
 function changeReadState(id) {
     let curEmail = gMails.find(email => email.id === id)
     curEmail = { ...curEmail }
-    curEmail.isRead=!curEmail.isRead
+    curEmail.isRead = !curEmail.isRead
     gMails = gMails.map(email => email.id === id ? curEmail : email)
-    // console.log(gMails)
+    
     return Promise.resolve(gMails)
 
+}
+
+function getFavorites(){    
+   let favoriteMails=gMails.filter(mail=>mail.isFavorite)
+    return Promise.resolve(favoriteMails)
 }
 
 function deleteEmail(id) {
@@ -116,36 +141,38 @@ function deleteEmail(id) {
     return Promise.resolve(gMails)
 }
 
-
-
-// function creatMails () {
-//     gMails.push(createMail('asfasfasf','asfasfasfasfasfasfsasfasfasf'))
-//     gMails.push(createMail('asfasfasfasfasf1213132','sdfgdfgdsffgdf'))
-//     gMails.push(createMail('kjasdvlkuadbvkluadbva','asfasfasfafasf'))
-//     gMails.push(createMail('work','what about the work'))
-//     gMails.push(createMail('play','lets play'))
-//     gMails.push(createMail('go','go to hell'))
-//     gMails.push(createMail('hi','asdasdasd'))
-//     gMails.push(createMail('asdasdwe','asdasdhhhrr'))
-//     gMails.push(createMail('aewfahh','hboiskjv'))
-//     gMails.push(createMail('fdasf','asddghea'))
-//     console.log(gMails);
-
-// }
-
 function getEmailsToRender(filter) {
     console.log(filter)
-    if(filter.readingState==='read'){
-        return Promise.resolve(gMails.filter(email=>{
-            return email.isRead
-        }))
+    let filteredMails
+    if (filter.readingState === 'read') {
+        filteredMails =  gMails.filter(email => {
+            return (email.subject.toLowerCase().includes(filter.title.toLowerCase()) && email.isRead)
+        })
     }
-    else if(filter.readingState==='unRead'){
-        return Promise.resolve(gMails.filter(email=>{
-            return !email.isRead
-        }))
+    else if (filter.readingState === 'unRead') {
+        filteredMails=gMails.filter(email => {
+            return (!email.isRead && email.subject.toLowerCase().includes(filter.title.toLowerCase()))
+        })
+    }   
+
+    else filteredMails=gMails.filter(email => {
+        return (email.subject.toLowerCase().includes(filter.title.toLowerCase()))
+    })
+
+    if(filter.folder==='starred'){
+        return Promise.resolve(filteredMails.filter(email=>email.isFavorite))
     }
-    else return Promise.resolve(gMails) 
+
+    return Promise.resolve(filteredMails)
+
+    
 }
+
+
+
+
+
+
+
 
 

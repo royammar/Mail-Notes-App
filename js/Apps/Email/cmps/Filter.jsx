@@ -19,8 +19,9 @@ export default class Filter extends React.Component {
 
 
     render() {
-        return <div >
-            {/* <input type="text" name="name" placeholder="Search" value={this.props.filterBy.name} onChange={this.changeInput} /> */}
+        return <div className="filter-container">
+            <input type="text" name="title" placeholder="Search" value={this.props.filterBy.name} onChange={this.handleChange} />
+            {/* <input type="text"/> */}
             <select onChange={this.handleChange} name="readingState" id="">
             <option value='all'>All</option>
             <option value='read'>Read</option>
