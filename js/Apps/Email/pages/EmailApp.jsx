@@ -16,10 +16,6 @@ export default class EmailApp extends React.Component {
         this.setState({emails:emailService.getEmailsToRender()})
     }
 
-    
-
-    
-
 
 
     render() {

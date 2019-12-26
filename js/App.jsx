@@ -4,6 +4,7 @@ import MainNavBar from './cmpts/MainNavBar.jsx'
 import ModalDialog from './Apps/Email/cmps/ModalDialog.jsx'
 import EmailPage from './Apps/Email/pages/EmailPage.jsx'
 import NewMail from './Apps/Email/pages//NewMail.jsx'
+import KeepApp from './Apps/Keep/pages/KeepApp.jsx'
 const Router = ReactRouterDOM.HashRouter
 const { Route, Switch } = ReactRouterDOM
 const { createBrowserHistory } = History
@@ -25,6 +26,7 @@ class App extends React.Component {
                     <Route component={EmailApp} path="/emails" exact></Route>
                      <Route component={EmailPage} path="/emails/:id" exact></Route>
                     <Route component={NewMail} path="/newmail" exact></Route>
+                    <Route component={KeepApp} path="/keep" exact></Route>
                     </Switch>
                 </Router>
             </div>

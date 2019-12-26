@@ -4,8 +4,10 @@ export default function MainNavBar(props) {
         <ul>
             <li>
                 <NavLink activeClassName="active" to='/emails' >MailApp</NavLink>
-                
-                </li>            
+            </li>
+            <li>
+                <NavLink activeClassName="active" to='/keep' >Notes</NavLink>
+            </li>
         </ul>
     </nav>
 }
