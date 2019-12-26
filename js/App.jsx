@@ -21,12 +21,13 @@ class App extends React.Component {
         return (
             <div>
                 <Router history={history}>
-                    <ModalDialog></ModalDialog>
+                    {/* <ModalDialog></ModalDialog> */}
                     <MainNavBar></MainNavBar>
                     <Switch>
                         <Route component={EmailApp} path="/emails" exact></Route>
                         <Route component={EmailPage} path="/emails/:id" exact></Route>
                         <Route component={NewMail} path="/newmail" exact></Route>
+                        <Route component={NewMail} path="/newmail/:id" exact></Route>
                         <Route component={KeepApp} path="/keep" exact></Route>
                     </Switch>
                 </Router>

@@ -5,8 +5,39 @@
 
 }
 
+.btn{
+  background-color: white;
+  border: none;
+  cursor: pointer;
+  margin-bottom: 5px;
+  
+}
+
+.email-nav{
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid black;
+}
+
+.emails-main{
+  display: flex;
+  flex-direction: row;
+}
+
+.emais-list{
+  display: flex;
+  flex-direction: column;
+}
+
 .emails-container{
   display: flex;
+  
+}
+
+.filter-container{
+  width:100%;
+  display: flex;
+  
 }
 
 

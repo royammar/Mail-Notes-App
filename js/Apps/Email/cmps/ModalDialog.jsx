@@ -1,4 +1,4 @@
-import eventBusService from "../../../services/eventBusService.js"
+// import eventBusService from "../../../eventBusService.js"
 
 export default class ModalDialog extends React.Component {
     eventKiller = null;

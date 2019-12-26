@@ -2,12 +2,25 @@ import emailService from "../services/emailService.js";
 
 export default class NewMail extends React.Component {
     state = {
+        email:null,
         subject: '',
-        body: ''
+        body: '',
+        
     }
 
-    componentDidMount() {
+    componentDidMount() {  
+       if (this.props.match.params.id){
+          let id=this.props.match.params.id
+           emailService.getEmailById(id)
+           .then(email=>this.setState({email:email,subject:'re:'+email.subject,body:email.body}))
+       }  
+        
+
  
+    }
+
+    componentWillUnmount(){
+        console.log('died')
     }
     
 
@@ -25,7 +38,8 @@ render() {
             onChange={this.inputChange} value={this.state.subject}></input>
         <input type="text" placeholder="Enter your mail here" name="body"
             onChange={this.inputChange} value={this.state.body}></input>
-        <button onClick={this.onSave}>Save</button>
+        <button onClick={this.onSave}>Send</button>
+        
     </div>
 }
 }
