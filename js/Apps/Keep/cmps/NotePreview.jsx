@@ -4,10 +4,9 @@ export default class NotePreivew extends React.Component {
 
 
     componentDidMount() {
+   
 
     }
-
-
     getComponent() {
 
 
@@ -15,15 +14,18 @@ export default class NotePreivew extends React.Component {
     }
 
 
+    handleDelete=()=>{
+        this.props.onDeleteNote(this.props.note.id)
+    }
+
     render() {
         const Cmp = this.getComponent();
-
-
+        
         return (
             <React.Fragment>
-                <div className='note'>
-                    <h3>{this.props.note.id}</h3>
-                    <Cmp note={this.props.note}></Cmp>
+                <div className='note' id={this.props.note.id} >
+                    <button  onClick={this.handleDelete}>X</button>
+                    <Cmp onMarkTodoAsDone={this.props.onMarkTodoAsDone} onEditNote={this.props.onEditNote}   note={this.props.note}></Cmp>
                 </div>
             </React.Fragment>
         )
