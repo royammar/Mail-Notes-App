@@ -49,7 +49,7 @@ export default class EmailPreview extends React.Component {
         const suject=this.props.email.subject
         const body=this.props.email.body
         const mailPreview=(suject+' | '+body)
-        return (mailPreview.length>50)?mailPreview.substring(0,50)+'...':mailPreview
+        return (mailPreview.length>40)?mailPreview.substring(0,40)+'...':mailPreview
     }
 
 
@@ -60,16 +60,16 @@ export default class EmailPreview extends React.Component {
         return (<div className="email-container">
             <Link className="email-link" to={`/emails/${this.props.email.id}`} key={this.props.email.id} >
                 <div className="mail-preview">
-                    <span className="preview-side" >Yael</span>                                      
+                    <span className="preview-side email-from" >Yael</span>                                      
                     <div className={this.props.email.isRead ? "read" : "unRead"}>{this.formatPreviewText()}</div>
-                    <span className="preview-side"> {this.formatDate(this.props.email.sentAt)}</span>
+                    <span className="preview-side email-hour"> {this.formatDate(this.props.email.sentAt)}</span>
 
                 </div>
             </Link>
             <span className="email-actions">
-                <button onClick={() => this.onHandleDelete(this.props.email.id,this.props.folder)} className="delete btn"><i className="fas fa-trash-alt"></i></button>
-                <button className="mark-read btn" onClick={() => this.onHandleMark(this.props.email.id)}>{this.props.email.isRead ? <i className="fas fa-envelope-open-text"></i> : <i className="fa fa-envelope"></i>}</button>
-                <button className="favorite btn" onClick={() => this.onFavoriteClick(this.props.email.id)}>{this.props.email.isFavorite ? <i className="fas fa-star"></i> : <i className="far fa-star"></i>}</button>
+                <button onClick={() => this.onHandleDelete(this.props.email.id,this.props.folder)} className="delete email-btn"><i className="fas fa-trash-alt"></i></button>
+                <button className="mark-read email-btn" onClick={() => this.onHandleMark(this.props.email.id)}>{this.props.email.isRead ? <i className="fas fa-envelope-open-text"></i> : <i className="fa fa-envelope"></i>}</button>
+                <button className="favorite email-btn" onClick={() => this.onFavoriteClick(this.props.email.id)}>{this.props.email.isFavorite ? <i className="fas fa-star"></i> : <i className="far fa-star"></i>}</button>
             </span>
         </div>
         )

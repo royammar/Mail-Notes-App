@@ -15,7 +15,7 @@ export default class Sort extends React.Component {
     render() {
         return <div className="sort-container">
 
-            <select onChange={this.handleSortChange} name="sortBy" id="">
+            <select className="email-sort" onChange={this.handleSortChange} name="sortBy" id="">
                 <option value='newToOld'>Newest To Oldest</option>
                 <option value='oldToNew'>Oldest To Newest</option>
                 <option value='alphaAsc'>A-Z</option>

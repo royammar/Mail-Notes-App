@@ -48,9 +48,9 @@ export default class EmailPage extends React.Component {
                         {this.state.email.subject}
                         <span>
                             <Link to={'/newmail/' + this.state.email.id} email={this.state.email}>
-                                <button onClick={this.onReply}><i className="fas fa-reply"></i></button>
+                                <button className="email-btn" onClick={this.onReply}><i className="fas fa-reply"></i></button>
                             </Link>
-                            <button onClick={() => this.onDelete(this.state.email.id)} className="delete btn"><i className="fas fa-trash-alt"></i></button>
+                            <button onClick={() => this.onDelete(this.state.email.id)} className="delete btn email-btn"><i className="fas fa-trash-alt"></i></button>
                         </span>
                     </div>
                     <div className="readmail-body">{this.state.email.body}</div>
