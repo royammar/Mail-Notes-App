@@ -40,14 +40,14 @@ export default class NewMail extends React.Component {
             <div className="new-email-header">New Massege</div>
             <div className="compose-contaimer">
                 <div className="new-email-compose">
-                    <input type="text" placeholder="subject" name="subject"
+                    <input type="text" placeholder="Subject" name="subject"
                         onChange={this.inputChange} value={this.state.subject}></input>
                     <textarea onChange={this.inputChange} value={this.state.body}
                         placeholder="Enter your mail here" className="email-body" name="body" id="" cols="30" rows="10"></textarea>
 
                     <div className="email-buttons-container">
-                        <button onClick={this.onSave}><i className="far fa-paper-plane"></i></button>
-                        <button onClick={this.onInboxClick}>Inbox</button>
+                        <button className="email-btn" onClick={this.onInboxClick}>Inbox</button>
+                        <button className="email-btn" onClick={this.onSave}><i className="far fa-paper-plane"></i></button>
                     </div>
                 </div>
             </div>

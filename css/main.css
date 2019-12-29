@@ -21,6 +21,15 @@ body {
   width: 100%
 }
 
+.email-btn {
+  background-color: white;
+  cursor: pointer;
+}
+
+.email-btn:hover {
+  color: #47c9af;
+}
+
 .btn {
   background-color: white;
   border: none;
@@ -59,16 +68,15 @@ body {
   cursor: pointer;
 }
 
-.active-folder{
+.active-folder {
   width: 100px;
   padding: 1px;
   margin-bottom: 2px;
   border-radius: 10px;
-  border: 1px solid;
+  border: 1px solid black;
   cursor: pointer;
   background-color: darkcyan;
   color: white;
-
 }
 
 .email-nav-btn:hover {
@@ -85,7 +93,8 @@ body {
   grid-template-rows: 80px 1fr;
   height: calc(100% - 60px);
 }
-.email-logo{
+
+.email-logo {
   font-size: 1.5rem;
   color: white;
 }
@@ -97,6 +106,11 @@ body {
   justify-content: space-between;
   background-color: #47c9af;
   padding: 10px;
+}
+
+.email-sort {
+  height: 30px;
+  border: 2px solid;
 }
 
 .emails-container {
@@ -154,7 +168,7 @@ body {
   border: 2px solid;
 }
 
-.sort-container-email{
+.sort-container-email {
   height: 100%;
   width: 180px;
   border: 2px solid;
@@ -176,7 +190,7 @@ body {
 
 /* readmail  */
 
-.readmail-inbox-btn{
+.readmail-inbox-btn {
   margin-bottom: 10px;
   background-color: #47c9af;
   padding: 5px;
@@ -232,6 +246,10 @@ body {
   border: 2px solid;
 }
 
+.new-email-compose>* {
+  padding-left: 5px;
+}
+
 .new-email-compose>*:not(:last-child) {
   border-bottom: 2px solid;
 }
@@ -265,10 +283,13 @@ body {
 
 .new-email-header {
   width: 100%;
-  text-align: center;
+  display: flex;
   height: 30px;
-  background-color: tomato;
+  background-color: #47c9af;
   margin-bottom: 20px;
+  color: white;
+  align-items: center;
+  justify-content: center;
 }
 
 /* html{
@@ -511,11 +532,9 @@ img{
   margin-right: 10px;
 }
 
-.keep-app{
+.keep-app {
   background-color: lightgray;
-
 }
-
 
 .note {
   border-color: #e0e0e0;
@@ -573,7 +592,6 @@ img{
   width: 50%;
   height: 50%;
   justify-content: space-around;
-  
 }
 
 .note-add-input {
@@ -668,18 +686,13 @@ img{
   height: 35px;
 }
 
-
-.note-search-input{
+.note-search-input {
   height: 100%;
-  
-  }
-  
-  .note-search-select{
-      height: 100%;
-      
-      }
+}
 
-
+.note-search-select {
+  height: 100%;
+}
 
 .color-input {
   opacity: 0;
@@ -747,7 +760,6 @@ img{
   height: 300px;
 }
 
-
 /* 
 #map iframe,
 #map object,
@@ -804,13 +816,12 @@ audio {
   margin-left: auto;
 }
 
-.todos-list-container{
+.todos-list-container {
   padding-left: 0;
   text-align: center;
-
 }
 
-select{
+select {
   cursor: pointer;
 }
 
@@ -819,9 +830,7 @@ select{
 }
 
 @media screen and (max-width: 1000px) {
-
   .Notes-container {
-  
     column-count: 3;
 
 }
@@ -831,11 +840,8 @@ select{
 }
 }
 
-
 @media screen and (max-width: 870px) {
-
   .Notes-container {
-  
     column-count: 2;
 
 }
@@ -869,11 +875,8 @@ select{
 }
 }
 
-
 @media screen and (max-width: 450px) {
-
   .Notes-container {
-  
     /* column-count: 1; */
     display: flex;
     flex-direction: column;
@@ -898,3 +901,21 @@ width: 80%;
 }
 }
 
+@media (max-width: 700px) {
+  * {
+    font-size: 0.9rem;
+  }
+  .emails-main {
+    display: grid;
+    grid-template-columns: 120px 1fr;
+    grid-template-rows: 80px 1fr;
+    height: calc(100% - 60px);
+  }
+  .mail-preview {
+    display: grid;
+    width: 100%;
+    grid-template-columns: 60px 1fr 80px;
+    height: 50px;
+    align-items: center;
+  }
+}
