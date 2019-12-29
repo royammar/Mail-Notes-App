@@ -6,22 +6,33 @@ export default {
     getNotesTorender,
     DeleteNote,
     toggleTodo,
-    editNote
+    editNote,
+    pinNote,
+    ChangeColor,
+    setUrlNote,
+    duplicateNote,
+
 }
 
-var gNotes = [{ id: '124124', type: "NoteText", isPinned: false, info: { txt: "Fullstack Me Baby!" }, style: { backgroundColor: "#00d" } },
-{ id: '12412412', type: "NoteImg", isPinned: false, info: { url: "https://upload.wikimedia.org/wikipedia/commons/1/12/We_Can_Do_It%21.jpg", title: "Me playing Mi" }, style: { backgroundColor: "#00d" } },
-{ id: '1211412412', type: "NoteTodos", isPinned: false, info: { label: "How was it:", todos: [{ txt: "Do that", doneAt: null }, { txt: "Do this", doneAt: 187111111 }] }, style: { backgroundColor: "#00d" } },
-{ id: '311233', type: "NoteVideo", isPinned: false, info: { url: "https://www.youtube.com/embed/tgbNymZ7vqY", title: "Me playing Mi" }, style: { backgroundColor: "#00d" } }];
+var gNotes = [{ id: '124124', type: "NoteText", isPinned: false, info: {title:"React makes it painless to create interactive UIs. Design simple views for each state in your application, and React will efficiently update and render just the right components when your data changes." , txt: "React makes it painless to create interactive UIs. Design simple views for each state in your application, and React will efficiently update and render just the right components when your data changes." }, style: { backgroundColor: "#FFDC00" } },
+{ id: '12412412', type: "NoteImg", isPinned: false, info: { url: "https://upload.wikimedia.org/wikipedia/commons/1/12/We_Can_Do_It%21.jpg", title: "Memes" }, style: { backgroundColor: "#0074D9" } },
+{ id: '1243212412', type: "NoteImg", isPinned: false, info: { url: "https://hackernoon.com/hn-images/1*_Q8TCuSlMVz2PIglVnKO_A.jpeg", title: "React is (not) fun" }, style: { backgroundColor: "#45B8AC" } },
+{ id: '123243212412', type: "NoteImg", isPinned: false, info: { url: "https://media-cdn.tripadvisor.com/media/photo-s/16/85/e0/ac/amazing-interactive-things.jpg", title: "React is (not) fun" }, style: { backgroundColor: "light blue" } },
+{ id: '1211412412', type: "NoteTodos", isPinned: false, info: { title: "Tasks I have to do:", todos: [{ txt: "Learn React", doneAt: null }, { txt: "Finish this sprint", doneAt: null }, { txt: "Dont forget to sleep", doneAt: null }, { txt: "Stop eating those crappy cookies", doneAt: null }] }, style: { backgroundColor: "#c80e13" } },
+{ id: '311233', type: "NoteVideo", isPinned: false, info: { url: "https://www.youtube.com/embed/tgbNymZ7vqY", title: "Me playing Mi" }, style: { backgroundColor: "#7FDBFF" } },
+{ id: '31123123113', type: "NoteAudio", isPinned: false, info: { url: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3", title: "My Music" }, style: { backgroundColor: "#7FDBFF" } },
+// { id: '311323123113', type: "NoteMap", isPinned: false, info: { lat: 32,lng:35, title: "My Loacation" }, style: { backgroundColor: "#7FDBFF" } },
+{ id: '123124666', type: "NoteMap", isPinned: false, info: { lat: -23.533,lng:-46.62, title: "My Loacation" }, style: { backgroundColor: "#7FDBFF" } },
+{ id: '31111233', type: "NoteVideo", isPinned: false, info: { url: "https://www.youtube.com/embed/lspQ1qd4fPE", title: "Lola Marsh - Only For a Moment " }, style: { backgroundColor: "#7d3cff" } }
 
-
+];
 function createNote(info, type) {
     let note = {
         id: getRandomID(),
         type: type,
         isPinned: false,
         info: setInfo(info, type),
-        style: { backgroundColor: "#00d" }
+        style: { backgroundColor: "lightblue" }
     }
 
     gNotes = [...gNotes, note]
@@ -29,8 +40,10 @@ function createNote(info, type) {
 
 }
 
-function getNotesTorender() {
-    return Promise.resolve(gNotes)
+function getNotesTorender(filterBy) {
+    const notes = (!filterBy) ? [...gNotes] :
+        gNotes.filter(note => note.type.includes(filterBy.NoteType) && note.info.title.includes(filterBy.name))
+    return Promise.resolve(notes)
 }
 
 function toggleTodo(noteId, todoIdx) {
@@ -42,11 +55,12 @@ function toggleTodo(noteId, todoIdx) {
 
 }
 
-function editNote(noteId, value, item,toDoIdx) {
+function editNote(noteId, value, item, toDoIdx) {
     let noteIdxToEdit = findNoteById(noteId)
-    if (item==="txt") gNotes[noteIdxToEdit].info[item] = value
-    else if (item==="todos")  gNotes[noteIdxToEdit].info[item][toDoIdx].txt=value;
-     
+    if (item === "txt") gNotes[noteIdxToEdit].info[item] = value
+    else if (item === "todos") gNotes[noteIdxToEdit].info[item][toDoIdx].txt = value;
+    else if (item === "todos-label") gNotes[noteIdxToEdit].info.title = value
+
     return Promise.resolve(gNotes)
 }
 
@@ -56,21 +70,44 @@ function findNoteById(noteId) {
 
 }
 
+function pinNote(noteId) {
+    gNotes[findNoteById(noteId)].isPinned = !gNotes[findNoteById(noteId)].isPinned
+    let currNote = gNotes[findNoteById(noteId)]
+    let notes = [...gNotes]
+    gNotes = notes.filter(note => note.id !== noteId)
+    gNotes = [currNote, ...gNotes]
+    return Promise.resolve(gNotes)
+}
+
+function ChangeColor(noteId, color) {
+
+    gNotes[findNoteById(noteId)].style = { 'backgroundColor': color }
+
+    return Promise.resolve(gNotes)
+}
+
+
+
+
+
 function setInfo(info, type) {
     let noteInfo = ''
     switch (type) {
         case 'NoteText':
-            noteInfo = { txt: info }
+            noteInfo = { title: info,txt: info }
             break;
         case 'NoteImg':
-            noteInfo = { url: info, title: "new Image" }
+            noteInfo = { url: info, title: "New Image" }
             break;
         case 'NoteVideo':
-            noteInfo = { url: info, title: "new Video" }
+            noteInfo = { url: info, title: "New Video" }
+            break;
+        case 'NoteAudio':
+            noteInfo = { url: info, title: "New Audio" }
             break;
         case 'NoteTodos':
             noteInfo = {
-                label: "New Todo:", todos: getTodosFormat(info)
+                title: "New Todo:", todos: getTodosFormat(info)
             }
             break;
         default:
@@ -99,3 +136,40 @@ function DeleteNote(noteId) {
     return Promise.resolve(true)
 
 }
+
+function setUrlNote(noteId, url) {
+
+    gNotes[findNoteById(noteId)].info.url = url
+    console.log(gNotes[findNoteById(noteId)].info.url);
+
+    return Promise.resolve(gNotes)
+
+}
+
+function duplicateNote(noteId) {
+
+    let currNote = gNotes[findNoteById(noteId)]
+    let newNote = {
+        id: getRandomID(),
+        type: currNote.type,
+        isPinned: false,
+        info: (currNote.type === 'NoteTodos') ? duplcateInfo(currNote.info) : { ...currNote.info },
+        style: { backgroundColor: currNote.style.backgroundColor }
+    }
+    gNotes = [...gNotes, newNote]
+    return Promise.resolve(gNotes)
+}
+
+
+function duplcateInfo(info) {
+    let newNoteInfo = {
+        title: info.title,
+        todos: []
+    }
+    info.todos.forEach(item => {
+        newNoteInfo.todos.push({ ...item })
+    })
+    return newNoteInfo
+}
+
+ 

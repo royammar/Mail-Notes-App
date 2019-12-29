@@ -1,6 +1,6 @@
 import KeepService from '../services/keepService.js'
 import NoteList from '../cmps/NoteList.jsx'
-import Filter from  '../cmps/Filter.jsx'
+import Filter from '../cmps/Filter.jsx'
 import NoteAdd from '../cmps/NoteAdd.jsx'
 import keepService from '../services/keepService.js'
 
@@ -18,58 +18,73 @@ export default class KeepApp extends React.Component {
     }
 
     loadNotes = () => {
-        KeepService.getNotesTorender().then(notes => {
+        KeepService.getNotesTorender(this.state.filterBy).then(notes => {
             this.setState({ notes })
         })
 
     }
 
-    goBack = () => {
-        console.log('back');
+    onAddNote = (newNote, noteType) => {
+        KeepService.createNote(newNote, noteType).then(res => this.loadNotes())
+    }
+
+    onSetFilter = (filterBy) => {
+        this.setState({filterBy} , this.loadNotes);
 
     }
 
-    onAddNote = (newNote,noteType) => {
-        KeepService.createNote(newNote,noteType).then(res=>this.loadNotes())
+    onMarkTodoAsDone = (noteId, todoIdx) => {
+        KeepService.toggleTodo(noteId, todoIdx).then(res => this.loadNotes())
     }
 
-    onSetFilter=()=>{
-        console.log('filter');
+
+
+    onEditNote = (noteId, value, Item, Idx) => {
+        console.log(noteId, value, Item, Idx);
         
-    }
-
-    onMarkTodoAsDone=(noteId,todoIdx)=>{
-        KeepService.toggleTodo(noteId,todoIdx).then(res=>this.loadNotes())
-    }
-
-
-
-    onEditNote=(noteId,value,Item,Idx)=>{
-        console.log(noteId,value,Item,Idx)
-        keepService.editNote(noteId,value,Item,Idx).then(notes=>this.setState({ notes })
+        keepService.editNote(noteId, value, Item, Idx).then(notes => this.setState({ notes })
         )
     }
 
 
+    onDeleteNote = (noteId) => {
+        KeepService.DeleteNote(noteId).then(res => this.loadNotes())
+    }
 
-   
-    onHandleSelect=()=>{
-        document.getElementById(this.props.note.id).contentEditable == "true"  
-        console.log(document.getElementById(this.props.note.id));
+    onPinNote = (noteId) => {
+        KeepService.pinNote(noteId).then(res => this.loadNotes())
+
+    }
+
+    handleColorChange = (noteId, color) => {
+
+        KeepService.ChangeColor(noteId, color).then(res => this.loadNotes())
+
     }
 
 
-    onDeleteNote=(noteId)=>{
-        KeepService.DeleteNote(noteId).then(res=>this.loadNotes())
+    handleUrlChange = (noteId, url) => {
+        KeepService.setUrlNote(noteId,url).then(res => this.loadNotes())
     }
+
+
+    handleDuplicate=(noteId)=>{
+
+        keepService.duplicateNote(noteId)
+        .then(res => this.loadNotes())
+    }
+
     render() {
 
-        // if (!this.state.notes) return <div className="loading">Loading...</div>
         return (
             <React.Fragment>
-                <NoteAdd onAddNote={this.onAddNote}></NoteAdd>  
-                <NoteList onMarkTodoAsDone={this.onMarkTodoAsDone}  notes={this.state.notes}  goBack={this.goBack} onHandleSelect={this.onHandleSelect} onDeleteNote={this.onDeleteNote} onEditNote={this.onEditNote} ></NoteList>
-                {/* <Filter filterBy={this.state.filterBy} onSetFilter={this.onSetFilter}></Filter> */}
+                <NoteAdd onAddNote={this.onAddNote}></NoteAdd>
+                <Filter onSetFilter={this.onSetFilter}></Filter>
+                <NoteList onMarkTodoAsDone={this.onMarkTodoAsDone} notes={this.state.notes}
+                    onHandleSelect={this.onHandleSelect}
+                    onDeleteNote={this.onDeleteNote} onEditNote={this.onEditNote}
+                    onPinNote={this.onPinNote} handleColorChange={this.handleColorChange}
+                    handleUrlChange={this.handleUrlChange} handleDuplicate={this.handleDuplicate} ></NoteList>
             </React.Fragment>
         )
 

@@ -8,9 +8,9 @@ export default class NoteText extends React.Component {
     }
 
     render() {
-        return (<div>
-            <input type="text"  name="txt" className="text-box"
-                onChange={() => this.handleChange(event)} value={this.props.note.info.txt}></input>
+        return (<div  >
+            <textarea  rows="10" cols="35" type="text"  name="txt" className="text-box notes-input"
+                onChange={() => this.handleChange(event)} value={this.props.note.info.txt}></textarea>
         </div>)
     }
 }
