@@ -34,10 +34,9 @@ export default class EmailPage extends React.Component {
         emailService.deleteEmail(id).then(res => this.setState({ email: null })).then(res => this.props.history.push('/emails'))
 
     }
-
-    onReply = (id) => {
-        this.setState({ isReply: true })
-
+    
+    onInboxClick=()=>{
+        this.props.history.push('/emails')
     }
 
     render() {
@@ -53,6 +52,7 @@ export default class EmailPage extends React.Component {
                     </span>
                 </div>
                 <div className="from">{this.state.email.body}</div>
+                <button onClick={this.onInboxClick}>Inbox</button>
 
 
             </div>

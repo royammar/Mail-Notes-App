@@ -3,6 +3,9 @@ import emailService from "../services/emailService.js";
 import EmailList from "../cmps/EmailList.jsx"
 import Filter from "../cmps/Filter.jsx";
 import NavBar from "../cmps/NavBar.jsx";
+import Sort from "../cmps/Sort.jsx";
+
+
 export default class EmailApp extends React.Component {
 
     state = {
@@ -10,8 +13,12 @@ export default class EmailApp extends React.Component {
         filterBy: {
             readingState: 'all',
             title:'',            
-            folder: 'general'
+            folder: 'inbox'
         },
+        // sortBy:{
+        //     date:'newToOld'
+        // }
+        sortBy: 'newToOld'
 
     }
 
@@ -24,11 +31,11 @@ export default class EmailApp extends React.Component {
 
 
     loadEmails = () => {       
-        emailService.getEmailsToRender(this.state.filterBy).then(emails=>this.setState({emails}))
+        emailService.getEmailsToRender(this.state.filterBy,this.state.sortBy).then(emails=>this.setState({emails}))
         
     }
     onDelete=(id)=>{
-        emailService.deleteEmail(id).then(res=>this.loadEmails())
+        emailService.deleteEmail(id).then(emails=>this.loadEmails())
 
     }
 
@@ -40,8 +47,7 @@ export default class EmailApp extends React.Component {
         emailService.changeReadState(id).then(emails => this.loadEmails())
     }
 
-    onFavoriteMark=(id)=>{
-        
+    onFavoriteMark=(id)=>{        
         
         emailService.changeFavoriteState(id).then(emails => this.loadEmails())
 
@@ -52,15 +58,30 @@ export default class EmailApp extends React.Component {
         
     }
 
+    onSetSort=(sort)=>{
+        this.setState({sortBy:sort},this.loadEmails)
+        // this.setState(prevState=>({sortBy:{...prevState.sortBy,...sort}}),this.loadEmails)
+
+    }
+
 
     render() {
+        console.log(this.state.emails)
         
         return <div className="emails-main">
-            <NavBar setFolder={this.setFolder} getAllEmails={this.loadEmails}></NavBar>
-            <div className="emais-list">
-            <div ><Filter filterBy={this.state.filterBy} onSetFilter={this.onSetFilter}></Filter></div>
-            {(this.state.emails) ? <EmailList onFavoriteMark={this.onFavoriteMark} onChangeMark={this.onChangeMark} onDelete={this.onDelete} updateEmails={this.loadEmails} emails={this.state.emails} changeReadState={this.changeReadState}></EmailList> : "No Emails"}
+            <div className="email-header">
+                <div className="email-logo">Mr.Email</div>                
+                <Filter filterBy={this.state.filterBy} onSetFilter={this.onSetFilter}></Filter>
+                <Sort onSetSort={this.onSetSort}>Sort</Sort>
             </div>
+            
+
+            <NavBar setFolder={this.setFolder} getAllEmails={this.loadEmails}></NavBar>
+            <div className="emails-container">
+            {(this.state.emails) ? <EmailList folder={this.state.filterBy.folder} onFavoriteMark={this.onFavoriteMark} onChangeMark={this.onChangeMark} onDelete={this.onDelete} updateEmails={this.loadEmails} emails={this.state.emails} changeReadState={this.changeReadState}></EmailList> : "No Emails"}
+            </div>
+
+            
 
         </div>
             
