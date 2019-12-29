@@ -814,6 +814,10 @@ select{
   cursor: pointer;
 }
 
+.menu-btn {
+  display: none;
+}
+
 @media screen and (max-width: 1000px) {
 
   .Notes-container {
@@ -821,7 +825,10 @@ select{
     column-count: 3;
 
 }
+.note-add-input{
 
+  font-size: 14px;
+}
 }
 
 
@@ -833,6 +840,33 @@ select{
 
 }
 
+
+
+.note-add-buttons-container{
+  flex-direction: column;
+  position: fixed;
+  right: 0;
+  top: 0;
+  background: gray;
+  width: 270px;
+  transform: translate(100%, 0);
+  transition: transform .6s;
+
+
+}
+
+.menu-btn {
+  display: block;
+  position: fixed;
+  top: 16px;
+  right: 32px;
+  height: 26px;
+}
+.menu-open {
+  
+  transform: translate(0%, 0);
+
+}
 }
 
 
@@ -856,5 +890,11 @@ width: 80%;
 
 
 
+.form-container{
+
+  width: 55%;
+
+
+}
 }
 
