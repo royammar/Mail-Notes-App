@@ -436,12 +436,12 @@ img:hover {
 } */
 
 main {
-  display: flex;
+  /* display: flex; */
 }
 
 .emailNav {
-  display: flex;
-  flex-direction: row;
+  /* display: flex; */
+  /* flex-direction: row; */
 }
 
 .Notes-container {
