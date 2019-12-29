@@ -10,6 +10,7 @@ export default class EmailApp extends React.Component {
 
     state = {
         emails: [],
+
         filterBy: {
             readingState: 'all',
             title:'',            
@@ -25,7 +26,6 @@ export default class EmailApp extends React.Component {
 
 
     componentDidMount() {
-        
         this.loadEmails()
     }
 
@@ -58,6 +58,10 @@ export default class EmailApp extends React.Component {
         
     }
 
+    // addActive=()=>{
+    //     return 'active'
+    // }
+
     onSetSort=(sort)=>{
         this.setState({sortBy:sort},this.loadEmails)
         // this.setState(prevState=>({sortBy:{...prevState.sortBy,...sort}}),this.loadEmails)
@@ -76,7 +80,7 @@ export default class EmailApp extends React.Component {
             </div>
             
 
-            <NavBar setFolder={this.setFolder} getAllEmails={this.loadEmails}></NavBar>
+            <NavBar folder={this.state.filterBy.folder} setFolder={this.setFolder} getAllEmails={this.loadEmails}></NavBar>
             <div className="emails-container">
             {(this.state.emails) ? <EmailList folder={this.state.filterBy.folder} onFavoriteMark={this.onFavoriteMark} onChangeMark={this.onChangeMark} onDelete={this.onDelete} updateEmails={this.loadEmails} emails={this.state.emails} changeReadState={this.changeReadState}></EmailList> : "No Emails"}
             </div>

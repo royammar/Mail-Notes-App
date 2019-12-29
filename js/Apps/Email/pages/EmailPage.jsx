@@ -34,28 +34,29 @@ export default class EmailPage extends React.Component {
         emailService.deleteEmail(id).then(res => this.setState({ email: null })).then(res => this.props.history.push('/emails'))
 
     }
-    
-    onInboxClick=()=>{
+
+    onInboxClick = () => {
         this.props.history.push('/emails')
     }
 
     render() {
         return (this.state.email && <React.Fragment>
-            <div className="reademail">
-                <div className="reademail-subject">
-                    {this.state.email.subject}
-                    <span>
-                        <Link to={'/newmail/' + this.state.email.id} email={this.state.email}>
-                            <button onClick={this.onReply}><i className="fas fa-reply"></i></button>
-                        </Link>
-                        <button onClick={() => this.onDelete(this.state.email.id)} className="delete btn"><i className="fas fa-trash-alt"></i></button>
-                    </span>
+            <section  className="readmail-section">
+                    <button className="readmail-inbox-btn" onClick={this.onInboxClick}>Inbox</button>
+                <div className="reademail-container">
+                    <div className="reademail-subject">
+                        {this.state.email.subject}
+                        <span>
+                            <Link to={'/newmail/' + this.state.email.id} email={this.state.email}>
+                                <button onClick={this.onReply}><i className="fas fa-reply"></i></button>
+                            </Link>
+                            <button onClick={() => this.onDelete(this.state.email.id)} className="delete btn"><i className="fas fa-trash-alt"></i></button>
+                        </span>
+                    </div>
+                    <div className="readmail-body">{this.state.email.body}</div>
+
                 </div>
-                <div className="from">{this.state.email.body}</div>
-                <button onClick={this.onInboxClick}>Inbox</button>
-
-
-            </div>
+            </section>
 
         </React.Fragment>)
     }

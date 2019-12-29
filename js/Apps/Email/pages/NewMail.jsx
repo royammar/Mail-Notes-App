@@ -1,4 +1,6 @@
 import emailService from "../services/emailService.js";
+// import eventBusService from '../../../services/eventBusService.js'
+
 const { Link } = ReactRouterDOM
 
 export default class NewMail extends React.Component {
@@ -17,12 +19,13 @@ export default class NewMail extends React.Component {
     }
 
     componentWillUnmount() {
-        
+
     }
 
 
     onSave = () => {
         emailService.createMail(this.state.subject, this.state.body).then(this.props.history.push('/emails'))
+        // eventBusService.emit('toggleModal', 'You received new mail!')
     }
     inputChange = (ev) => {
         let fieldName = ev.target.name
@@ -42,10 +45,10 @@ export default class NewMail extends React.Component {
                     <textarea onChange={this.inputChange} value={this.state.body}
                         placeholder="Enter your mail here" className="email-body" name="body" id="" cols="30" rows="10"></textarea>
 
-                <div className="email-buttons-container">
-                    <button onClick={this.onSave}><i className="far fa-paper-plane"></i></button>
-                    <button onClick={this.onInboxClick}>Inbox</button>
-                </div>
+                    <div className="email-buttons-container">
+                        <button onClick={this.onSave}><i className="far fa-paper-plane"></i></button>
+                        <button onClick={this.onInboxClick}>Inbox</button>
+                    </div>
                 </div>
             </div>
 

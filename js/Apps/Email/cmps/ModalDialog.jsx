@@ -6,17 +6,10 @@ export default class ModalDialog extends React.Component {
     state = { display: false, book: null }
 
     componentDidMount() {
-
-
-        this.eventKiller = eventBusService.on('toggleModal', (book) => {
-            this.setState(prevState => ({ display: !prevState.display, book })), Swal.fire({
-                html:
-                    'Sucsses!<b> Check it out</b>,' +
-                    `<a href="/#/books/${this.state.book.id}">${this.state.book.title}</a>`, icon: 'success',
-            })
-        })
+        this.eventKiller = eventBusService.on('toggleModal', (details) => {
+          console.log(details)  })
     }
-
+    // this.setState(prevState => ({ display: !prevState.display, book }))
 
     componentWillUnmount() {
         this.eventKiller && this.eventKiller();
