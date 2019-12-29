@@ -19,9 +19,10 @@ export default class Filter extends React.Component {
 
     render() {
         return <div className="note-search-container">
-            <input type="text" placeholder="Search" value={this.state.filterBy.name}
+            <div className="note-search-controller-container">
+            <input className="note-search-input" type="text" placeholder="Search" value={this.state.filterBy.name}
                 onChange={this.changeInput} name="name"></input>
-                <select onChange={this.changeInput} name="NoteType">
+                <select className="note-search-select" onChange={this.changeInput} name="NoteType">
                 <option value="Note">All</option>
                 <option value="NoteText">Text</option>
                 <option value="NoteTodos">Todos</option>
@@ -29,8 +30,8 @@ export default class Filter extends React.Component {
                 <option value="NoteVideo">Video</option>
                 <option value="NoteAudio">Audio</option>
             </select>
-            <button onClick={this.onFilterClick}><img className="" src="../../../../img/icons8-search-48.png" /></button>
-
+            <button className="note-search-button" onClick={this.onFilterClick}><img className="note-search-img" src="../../../../img/icons8-search-48.png" /></button>
+            </div>
         </div>
     }
 }

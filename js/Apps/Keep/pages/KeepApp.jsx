@@ -25,7 +25,10 @@ export default class KeepApp extends React.Component {
     }
 
     onAddNote = (newNote, noteType) => {
-        KeepService.createNote(newNote, noteType).then(res => this.loadNotes())
+        
+        KeepService.createNote(newNote, noteType).then(res =>{
+            this.loadNotes()})
+        
     }
 
     onSetFilter = (filterBy) => {
@@ -40,8 +43,6 @@ export default class KeepApp extends React.Component {
 
 
     onEditNote = (noteId, value, Item, Idx) => {
-        console.log(noteId, value, Item, Idx);
-        
         keepService.editNote(noteId, value, Item, Idx).then(notes => this.setState({ notes })
         )
     }
@@ -77,15 +78,16 @@ export default class KeepApp extends React.Component {
     render() {
 
         return (
-            <React.Fragment>
-                <NoteAdd onAddNote={this.onAddNote}></NoteAdd>
-                <Filter onSetFilter={this.onSetFilter}></Filter>
+            <div className="keep-app">
+             
+                   <NoteAdd onAddNote={this.onAddNote}></NoteAdd>
+                 <Filter onSetFilter={this.onSetFilter}></Filter>
                 <NoteList onMarkTodoAsDone={this.onMarkTodoAsDone} notes={this.state.notes}
                     onHandleSelect={this.onHandleSelect}
                     onDeleteNote={this.onDeleteNote} onEditNote={this.onEditNote}
                     onPinNote={this.onPinNote} handleColorChange={this.handleColorChange}
                     handleUrlChange={this.handleUrlChange} handleDuplicate={this.handleDuplicate} ></NoteList>
-            </React.Fragment>
+            </div>
         )
 
     }

@@ -4,15 +4,15 @@
   box-sizing: border-box;
   border: none;
 }
+
 html {
   margin: 0;
 }
+
 body {
   height: 100vh;
   margin: 0;
 }
-
-
 
 .mail-navbar {
   display: flex;
@@ -57,10 +57,11 @@ body {
   cursor: pointer;
 }
 
-.email-nav-btn:hover{
+.email-nav-btn:hover {
   background-color: darkcyan;
 }
-.email-nav-btn:active{
+
+.email-nav-btn:active {
   background-color: darkcyan;
 }
 
@@ -127,7 +128,7 @@ body {
   width: 100px;
 }
 
-.filter-container {  
+.filter-container {
   display: flex;
 }
 
@@ -319,7 +320,6 @@ img{
 }
 */
 
-
 @import url(http://fonts.googleapis.com/css?family=Raleway);
 #cssmenu, #cssmenu ul, #cssmenu ul li, #cssmenu ul li a {
   margin: 0;
@@ -441,18 +441,19 @@ main {
 }
 
 .Notes-container {
-  /* display: grid; */
-  /* gap: 10px;
-  grid-template-columns: repeat(auto-fill,minmax(400px,400px));
-  grid-auto-rows: 500px; */
-  /* align-items: center;
-  justify-content: center; */
   column-count: 4;
   column-gap: 1em;
+  margin-left: 10px;
+  margin-right: 10px;
 }
 
+.keep-app{
+  background-color: lightgray;
+
+}
+
+
 .note {
- 
   border-color: #e0e0e0;
   border-radius: 20px;
   border: 1px solid;
@@ -468,8 +469,6 @@ main {
   display: inline-block;
 }
 
-
-
 .clickable-item:hover {
   cursor: pointer;
 }
@@ -484,49 +483,51 @@ main {
   font-size: 14px;
 }
 
-.note-img{
+.note-img {
   margin-left: auto;
   margin-right: auto;
   display: block;
-
+  width: 88%
 }
-.notes-input{
 
+.notes-input {
   border: none
 }
 
-.note-add-container{
-background-color: lightgray;
-height: 80px;
-
-display: flex;
-justify-content: center;
-align-items: center;
+.note-add-container {
+  background-color: lightgray;
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.form-container{
-align-items: center;
-display: flex;
-background-color: white;
-width: 50%;
-height: 50%;
-justify-content: space-around;
+.form-container {
+  align-items: center;
+  display: flex;
+  background-color: white;
+  width: 50%;
+  height: 50%;
+  justify-content: space-around;
+  
 }
 
-.note-add-input{
-border: none;
-font-size: 16px;
-width: 52%
+.note-add-input {
+  border: none;
+  font-size: 16px;
+  width: 52%
 }
 
-.note-add-buttons-container{
+.note-add-buttons-container {
   display: flex;
   justify-content: center;
 }
+
 .emailNav {
   display: flex;
   flex-direction: row;
 }
+
 /* 
 .Notes-container {
   display: grid;
@@ -537,50 +538,45 @@ width: 52%
 
 } */
 
-.note-button-img{
-
+.note-button-img {
   height: 30px;
-
 }
 
-.note-button:hover{
-
- background-color: lightgray;
+.note-button:hover {
+  background-color: lightgray;
   cursor: pointer;
 }
-.note-button{
-  text-decoration: none;
-    list-style: none;
-    box-shadow: none;
-    border: none;
-    background-color: white;
 
+.note-button {
+  text-decoration: none;
+  list-style: none;
+  box-shadow: none;
+  border: none;
+  background-color: white;
 }
 
-
-
-.note-content{
+.note-content {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding-top:8px
+  padding-top: 8px
 }
 
-
-.note-label{
+.note-label {
   font-size: 16px;
   border-bottom: black 1px solid;
   margin-bottom: 5px;
-  width: 100%;
+  margin-left: 10px;
+  margin-right: 10px;
 }
 
-.note-controller-img{
+.note-controller-img {
   filter: invert(1);
   height: 23px;
 }
 
-.note-controller button{
+.note-controller button {
   background-color: inherit;
   text-decoration: none;
   list-style: none;
@@ -588,80 +584,104 @@ width: 52%
   border: none;
 }
 
-.note-controller-img:hover{
+.note-controller-img:hover {
   filter: invert(0);
   cursor: pointer;
 }
 
-
-.note-search-container{
-  
-  height: 80px;
-  margin-bottom: 30px;
+.note-search-container {
+  height: 41px;
+  margin-bottom: 10px;
   display: flex;
   justify-content: center;
   align-items: center;
-
 }
 
-.color-input{
-opacity: 0;
-width: 100%;
-height: 100%;
+.note-search-controller-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 35px;
 }
 
-.color-div{
+
+.note-search-input{
+  height: 100%;
+  
+  }
+  
+  .note-search-select{
+      height: 100%;
+      
+      }
 
 
-    display: inline-block;
-    background: url(/img/icons8-paint-palette-48.png) no-repeat;
-    background-position: center;
-    height: 27px;
-    width: 34px;
-    background-color: inherit;
-    filter: invert(1);
+
+.color-input {
+  opacity: 0;
+  width: 100%;
+  height: 100%;
 }
 
-.color-div:hover{
+.color-div {
+  display: inline-block;
+  background: url(/img/icons8-paint-palette-48.png) no-repeat;
+  background-position: center;
+  height: 27px;
+  width: 34px;
+  background-color: inherit;
+  filter: invert(1);
+}
+
+.color-div:hover {
   filter: invert(0);
   cursor: pointer;
 }
-.color-input:hover{
 
+.color-input:hover {
   cursor: pointer;
 }
-.note-controller-img{
+
+.note-controller {
+  margin-top: 5px
+}
+
+.note-controller-img {
   filter: invert(1);
   height: 23px;
 }
 
-.note-controller-img-false{
+.note-controller-img-false {
   filter: invert(1);
   height: 23px;
 }
 
-.note-controller-img-true{
+.note-controller-img-true {
   filter: invert(0);
   height: 23px;
 }
 
-.note-controller-img-false:hover{
+.note-controller-img-false:hover {
   filter: invert(0);
   cursor: pointer;
 }
-.note-controller-img-true:hover{
+
+.note-controller-img-true:hover {
   filter: invert(1);
   cursor: pointer;
 }
 
-#map{
+#map {
   height: 50%;
-  width: 300px;
+  width: 200px;
   position: absolute;
-    overflow: hidden;
-
+  overflow: hidden;
 }
 
+.map-container {
+  width: 196px;
+  height: 300px;
+}
 
 /* 
 #map iframe,
@@ -673,7 +693,6 @@ left: 0;
 width: 100%;
 height: 100%;
 } */
-
 
 /* .note {
   background-color: lightblue;
@@ -694,3 +713,83 @@ height: 100%;
 .text-box {
   background-color: inherit;
 } */
+
+.note-search-img {
+  height: 30px;
+  cursor: pointer;
+}
+
+.note-search-button {
+  text-decoration: none;
+  list-style: none;
+  box-shadow: none;
+  border: none;
+  background-color: white;
+  cursor: pointer;
+}
+
+audio {
+  width: 80%;
+}
+
+.notes-textarea {
+  resize: none;
+  width: 80%;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.todos-list-container{
+  padding-left: 0;
+  text-align: center;
+
+}
+
+select{
+  cursor: pointer;
+}
+
+@media screen and (max-width: 1000px) {
+
+  .Notes-container {
+  
+    column-count: 3;
+
+}
+
+}
+
+
+@media screen and (max-width: 870px) {
+
+  .Notes-container {
+  
+    column-count: 2;
+
+}
+
+}
+
+
+@media screen and (max-width: 450px) {
+
+  .Notes-container {
+  
+    /* column-count: 1; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.note {
+
+width: 80%;
+
+}
+
+
+
+}
+

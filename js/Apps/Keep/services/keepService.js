@@ -17,12 +17,12 @@ export default {
 var gNotes = [{ id: '124124', type: "NoteText", isPinned: false, info: {title:"React makes it painless to create interactive UIs. Design simple views for each state in your application, and React will efficiently update and render just the right components when your data changes." , txt: "React makes it painless to create interactive UIs. Design simple views for each state in your application, and React will efficiently update and render just the right components when your data changes." }, style: { backgroundColor: "#FFDC00" } },
 { id: '12412412', type: "NoteImg", isPinned: false, info: { url: "https://upload.wikimedia.org/wikipedia/commons/1/12/We_Can_Do_It%21.jpg", title: "Memes" }, style: { backgroundColor: "#0074D9" } },
 { id: '1243212412', type: "NoteImg", isPinned: false, info: { url: "https://hackernoon.com/hn-images/1*_Q8TCuSlMVz2PIglVnKO_A.jpeg", title: "React is (not) fun" }, style: { backgroundColor: "#45B8AC" } },
-{ id: '123243212412', type: "NoteImg", isPinned: false, info: { url: "https://media-cdn.tripadvisor.com/media/photo-s/16/85/e0/ac/amazing-interactive-things.jpg", title: "React is (not) fun" }, style: { backgroundColor: "light blue" } },
-{ id: '1211412412', type: "NoteTodos", isPinned: false, info: { title: "Tasks I have to do:", todos: [{ txt: "Learn React", doneAt: null }, { txt: "Finish this sprint", doneAt: null }, { txt: "Dont forget to sleep", doneAt: null }, { txt: "Stop eating those crappy cookies", doneAt: null }] }, style: { backgroundColor: "#c80e13" } },
+{ id: '123243212412', type: "NoteImg", isPinned: false, info: { url: "https://media-cdn.tripadvisor.com/media/photo-s/16/85/e0/ac/amazing-interactive-things.jpg", title: "React is (not) fun" }, style: { backgroundColor: "lightblue" } },
+{ id: '1211412412', type: "NoteTodos", isPinned: false, info: { title: "Tasks I have to do:", todos: [{ txt: "Learn React", doneAt: null }, { txt: "Finish this sprint", doneAt: null }, { txt: "Dont forget to sleep", doneAt: null }, { txt: "Stop eating crappy cookies", doneAt: null }] }, style: { backgroundColor: "#c80e13" } },
 { id: '311233', type: "NoteVideo", isPinned: false, info: { url: "https://www.youtube.com/embed/tgbNymZ7vqY", title: "Me playing Mi" }, style: { backgroundColor: "#7FDBFF" } },
 { id: '31123123113', type: "NoteAudio", isPinned: false, info: { url: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3", title: "My Music" }, style: { backgroundColor: "#7FDBFF" } },
 // { id: '311323123113', type: "NoteMap", isPinned: false, info: { lat: 32,lng:35, title: "My Loacation" }, style: { backgroundColor: "#7FDBFF" } },
-{ id: '123124666', type: "NoteMap", isPinned: false, info: { lat: -23.533,lng:-46.62, title: "My Loacation" }, style: { backgroundColor: "#7FDBFF" } },
+{ id: '123124666', type: "NoteMap", isPinned: false, info: { location:'new york',title: "My Loacation" }, style: { backgroundColor: "#7FDBFF" } },
 { id: '31111233', type: "NoteVideo", isPinned: false, info: { url: "https://www.youtube.com/embed/lspQ1qd4fPE", title: "Lola Marsh - Only For a Moment " }, style: { backgroundColor: "#7d3cff" } }
 
 ];
@@ -34,7 +34,6 @@ function createNote(info, type) {
         info: setInfo(info, type),
         style: { backgroundColor: "lightblue" }
     }
-
     gNotes = [...gNotes, note]
     return Promise.resolve(gNotes)
 
@@ -108,6 +107,12 @@ function setInfo(info, type) {
         case 'NoteTodos':
             noteInfo = {
                 title: "New Todo:", todos: getTodosFormat(info)
+            }
+            break;
+        case 'NoteMap':
+            
+            noteInfo = {
+                   title:"My Location",location: info
             }
             break;
         default:

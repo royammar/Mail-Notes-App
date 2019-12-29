@@ -15,7 +15,7 @@ export default class NoteTodos extends React.Component {
                         onChange={() => this.handleChange(event)} value={this.props.note.info.title}>
                     </input>
                 </div>
-                <ul >
+                <ul className="todos-list-container" >
                 {this.props.note.info.todos.map((todo, i) =>
                     
                         <li key={i} className='clickable-item'>
