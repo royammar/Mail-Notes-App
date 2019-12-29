@@ -1,29 +1,35 @@
-export default class Filter extends React.Component{
+export default class Filter extends React.Component {
     state = {
         filterBy: {
             name: '',
-            numOfLegs: 4
+            NoteType: 'Note'
         }
     }
-    changeInput =(ev)=>{
+    changeInput = (ev) => {
         const field = ev.target.name;
-        const value = (ev.target.type === 'number') ? +ev.target.value : ev.target.value ;
-        this.setState(prevState=>({filterBy: {...prevState.filterBy , [field] : value}}))
-        ///{filterBy:  {name:'' , numOfLegs:4 , name: 'e}}
+        const value = ev.target.value;
+        this.setState(prevState => ({ filterBy: { ...prevState.filterBy, [field]: value } }))
     }
 
-    onFilterClick = ()=>{
-        this.props.onFilter(this.state.filterBy)
+    onFilterClick = () => {
+        console.log(this.state);
+        
+        this.props.onSetFilter(this.state.filterBy)
     }
+
     render() {
-        return <div>
-            <input type="text" placeholder="name" value={this.state.filterBy.name}
+        return <div className="note-search-container">
+            <input type="text" placeholder="Search" value={this.state.filterBy.name}
                 onChange={this.changeInput} name="name"></input>
-            <input type="number" placeholder="num Of Legs" 
-                value={this.state.filterBy.numOfLegs} name="numOfLegs"
-                onChange={this.changeInput}></input>
-
-            <button onClick={this.onFilterClick}>Filter</button>
+                <select onChange={this.changeInput} name="NoteType">
+                <option value="Note">All</option>
+                <option value="NoteText">Text</option>
+                <option value="NoteTodos">Todos</option>
+                <option value="NoteImg">Image</option>
+                <option value="NoteVideo">Video</option>
+                <option value="NoteAudio">Audio</option>
+            </select>
+            <button onClick={this.onFilterClick}><img className="" src="../../../../img/icons8-search-48.png" /></button>
 
         </div>
     }

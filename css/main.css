@@ -1,81 +1,70 @@
-.mail-navbar{
+.mail-navbar {
   display: flex;
   width: 100%
-
-
 }
 
-.btn{
+.btn {
   background-color: white;
   border: none;
   cursor: pointer;
   margin-bottom: 5px;
-  
 }
 
-.email-nav{
+.email-nav {
   display: flex;
   flex-direction: column;
   border-right: 1px solid black;
 }
 
-.emails-main{
+.emails-main {
   display: flex;
   flex-direction: row;
 }
 
-.emais-list{
+.emais-list {
   display: flex;
   flex-direction: column;
 }
 
-.emails-container{
+.emails-container {
   display: flex;
-  
 }
 
-.filter-container{
-  width:100%;
+.filter-container {
+  width: 100%;
   display: flex;
-  
 }
 
-
-*{
+* {
   text-decoration: none;
   list-style: none;
-
 }
 
-.read{
+.read {
   color: grey;
 }
 
-.unRead{
+.unRead {
   color: black;
   font-weight: bold;
 }
 
-.mark-read{
+.mark-read {
   background-color: white;
   border: none;
 }
 
-.reademail-subject{
+.reademail-subject {
   font-size: 1.5rem;
   width: 100%;
   border-bottom: 1px solid black;
   display: flex;
-  justify-content:space-between
-
-
+  justify-content: space-between
 }
 
-.from{
+.from {
   border-bottom: 1px solid black;
 }
-
-
 
 /* html{
 
@@ -188,15 +177,14 @@ img{
     transition: all .2s ease-in-out;
 }
 
-*/
-img:hover{
-    transform: scale(1.1);
-}
+
+
+ img:hover {
+  transform: scale(1.1);
+} */
+
 @import url(http://fonts.googleapis.com/css?family=Raleway);
-#cssmenu,
-#cssmenu ul,
-#cssmenu ul li,
-#cssmenu ul li a {
+#cssmenu, #cssmenu ul, #cssmenu ul li, #cssmenu ul li a {
   margin: 0;
   padding: 0;
   border: 0;
@@ -210,15 +198,10 @@ img:hover{
 }
 
 #cssmenu {
-
-    margin-bottom: 30px;
+  margin-bottom: 30px;
 }
 
-
-
-
-#cssmenu:after,
-#cssmenu > ul:after {
+#cssmenu:after, #cssmenu>ul:after {
   content: ".";
   display: block;
   clear: both;
@@ -226,34 +209,42 @@ img:hover{
   line-height: 0;
   height: 0;
 }
+
 #cssmenu {
   width: auto;
   border-bottom: 3px solid #47c9af;
   font-family: Raleway, sans-serif;
   line-height: 1;
 }
+
 #cssmenu ul {
   background: #ffffff;
 }
-#cssmenu > ul > li {
+
+#cssmenu>ul>li {
   float: left;
 }
-#cssmenu.align-center > ul {
+
+#cssmenu.align-center>ul {
   font-size: 0;
   text-align: center;
 }
-#cssmenu.align-center > ul > li {
+
+#cssmenu.align-center>ul>li {
   display: inline-block;
   float: none;
 }
-#cssmenu.align-right > ul > li {
+
+#cssmenu.align-right>ul>li {
   float: right;
 }
-#cssmenu.align-right > ul > li > a {
+
+#cssmenu.align-right>ul>li>a {
   margin-right: 0;
   margin-left: -4px;
 }
-#cssmenu > ul > li > a {
+
+#cssmenu>ul>li>a {
   z-index: 2;
   padding: 18px 25px 12px 25px;
   font-size: 25px;
@@ -267,13 +258,12 @@ img:hover{
   transition: all .2s ease;
   margin-right: -4px;
 }
-#cssmenu > ul > li.active > a,
-#cssmenu > ul > li:hover > a,
-#cssmenu > ul > li > a:hover {
+
+#cssmenu>ul>li.active>a, #cssmenu>ul>li:hover>a, #cssmenu>ul>li>a:hover {
   color: #ffffff;
-  
 }
-#cssmenu > ul > li > a:after {
+
+#cssmenu>ul>li>a:after {
   position: absolute;
   left: 0;
   bottom: 0;
@@ -295,59 +285,243 @@ img:hover{
   transform-origin: bottom;
 }
 
-#cssmenu > ul > li:hover > a:after,
-#cssmenu > ul > li > a:hover:after {
+#cssmenu>ul>li:hover>a:after, #cssmenu>ul>li>a:hover:after {
   background: #47c9af;
- 
 }
-
 
 /* .sideNavBar{
 
   display: flex;
 } */
 
-main{
-
+main {
   display: flex;
 }
 
-.emailNav{
-display: flex;
-flex-direction: row;
-
+.emailNav {
+  display: flex;
+  flex-direction: row;
 }
 
-.Notes-container{
-
-  display: grid;
-  gap: 10px;
+.Notes-container {
+  /* display: grid; */
+  /* gap: 10px;
   grid-template-columns: repeat(auto-fill,minmax(400px,400px));
-  grid-auto-rows: 500px;
-  align-items: center;
-  justify-content: center;
-
+  grid-auto-rows: 500px; */
+  /* align-items: center;
+  justify-content: center; */
+  column-count: 4;
+  column-gap: 1em;
 }
 
 .note {
-background-color: lightblue;
-height: 300px;
-    border-color: #e0e0e0;
-    border-radius: 20px;
-    border: 1px solid;
+ 
+  border-color: #e0e0e0;
+  border-radius: 20px;
+  border: 1px solid;
+  background-color: #eee;
+  margin: 0 0 1em;
+  width: 100%;
+  background: #fefefe;
+  border: 2px solid #fcfcfc;
+  box-shadow: 0 1px 2px rgba(34, 25, 25, 0.4);
+  margin: 0 2px 15px;
+  padding-bottom: 10px;
+  transition: opacity .4s ease-in-out;
+  display: inline-block;
 }
 
-.clickable-item:hover{
+
+
+.clickable-item:hover {
+  cursor: pointer;
+}
+
+.done {
+  text-decoration: line-through;
+  opacity: 0.5;
+}
+
+.text-box {
+  background-color: inherit;
+  font-size: 14px;
+}
+
+.note-img{
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+
+}
+.notes-input{
+
+  border: none
+}
+
+.note-add-container{
+background-color: lightgray;
+height: 80px;
+
+display: flex;
+justify-content: center;
+align-items: center;
+}
+
+.form-container{
+align-items: center;
+display: flex;
+background-color: white;
+width: 50%;
+height: 50%;
+justify-content: space-around;
+}
+
+.note-add-input{
+border: none;
+font-size: 16px;
+width: 52%
+}
+
+.note-add-buttons-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.note-button-img{
+
+  height: 30px;
+
+}
+
+.note-button:hover{
+
+ background-color: lightgray;
+  cursor: pointer;
+}
+.note-button{
+  text-decoration: none;
+    list-style: none;
+    box-shadow: none;
+    border: none;
+    background-color: white;
+
+}
+
+
+
+.note-content{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top:8px
+}
+
+
+.note-label{
+  font-size: 16px;
+  border-bottom: black 1px solid;
+  margin-bottom: 5px;
+  width: 100%;
+}
+
+.note-controller-img{
+  filter: invert(1);
+  height: 23px;
+}
+
+.note-controller button{
+  background-color: inherit;
+  text-decoration: none;
+  list-style: none;
+  box-shadow: none;
+  border: none;
+}
+
+.note-controller-img:hover{
+  filter: invert(0);
   cursor: pointer;
 }
 
 
-.done{
-
-  text-decoration: line-through;
+.note-search-container{
+  
+  height: 80px;
+  margin-bottom: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
 }
 
-.text-box{
-background-color: inherit;
+.color-input{
+opacity: 0;
+width: 100%;
+height: 100%;
 }
+
+.color-div{
+
+
+    display: inline-block;
+    background: url(/img/icons8-paint-palette-48.png) no-repeat;
+    background-position: center;
+    height: 27px;
+    width: 34px;
+    background-color: inherit;
+    filter: invert(1);
+}
+
+.color-div:hover{
+  filter: invert(0);
+  cursor: pointer;
+}
+.color-input:hover{
+
+  cursor: pointer;
+}
+.note-controller-img{
+  filter: invert(1);
+  height: 23px;
+}
+
+.note-controller-img-false{
+  filter: invert(1);
+  height: 23px;
+}
+
+.note-controller-img-true{
+  filter: invert(0);
+  height: 23px;
+}
+
+.note-controller-img-false:hover{
+  filter: invert(0);
+  cursor: pointer;
+}
+.note-controller-img-true:hover{
+  filter: invert(1);
+  cursor: pointer;
+}
+
+#map{
+  height: 50%;
+  width: 300px;
+  position: absolute;
+    overflow: hidden;
+
+}
+
+
+/* 
+#map iframe,
+#map object,
+#map embed {
+  position: relative;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+} */
