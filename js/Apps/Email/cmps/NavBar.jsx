@@ -1,12 +1,14 @@
-const { NavLink,Link } = ReactRouterDOM
+const { NavLink } = ReactRouterDOM
 export default function NavBar(props) {
     return <nav className="email-nav">
-        <ul>
+        
             {/* <li><NavLink activeClassName="active" to='/emails' >Emails</NavLink></li>             */}
-            <li><NavLink activeClassName="active" to='/newmail' ><div className="sideNavBar"><button>Compose</button></div></NavLink></li>
-        </ul>
-        <button onClick={()=>props.setFolder('starred')}>Starred</button>
-        <button onClick={()=>props.setFolder('inbox')}>Inbox</button>    
+            <NavLink activeClassName="active" to='/newmail' ><div className="sideNavBar"><button className="email-nav-btn">Compose</button></div></NavLink>
+        
+        <button className="email-nav-btn" onClick={()=>props.setFolder('starred')}>Starred</button>
+        <button className="email-nav-btn" onClick={()=>props.setFolder('inbox')}>Inbox</button>    
+        <button className="email-nav-btn" onClick={()=>props.setFolder('sent')}>Sent</button>    
+        <button className="email-nav-btn" onClick={()=>props.setFolder('deleted')}>deleted</button>    
         
     </nav>
 }

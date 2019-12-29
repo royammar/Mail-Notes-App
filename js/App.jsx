@@ -19,7 +19,7 @@ class App extends React.Component {
     }
     render() {
         return (
-            <div>
+            <div className="main-app">
                 <Router history={history}>
                     {/* <ModalDialog></ModalDialog> */}
                     <MainNavBar></MainNavBar>
