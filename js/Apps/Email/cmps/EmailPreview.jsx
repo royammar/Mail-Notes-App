@@ -1,12 +1,16 @@
 const { Link } = ReactRouterDOM
 
 
-
-
-
 export default class EmailPreview extends React.Component {
 
     onHandleDelete = (id,folder) => {
+        // swal.fire({
+
+        // }).then(res=> {
+            
+        //     if(res==='yes')
+            
+        // })
         this.props.onDelete(id,folder)
 
         // .then(res => this.setState({ book: null }))

@@ -1,18 +1,20 @@
+@import url(http://fonts.googleapis.com/css?family=Raleway);
 * {
   text-decoration: none;
   list-style: none;
   box-sizing: border-box;
   border: none;
+  font-family: raleway, sans-serif;
 }
+
 html {
   margin: 0;
 }
+
 body {
   height: 100vh;
   margin: 0;
 }
-
-
 
 .mail-navbar {
   display: flex;
@@ -57,18 +59,35 @@ body {
   cursor: pointer;
 }
 
-.email-nav-btn:hover{
+.active-folder{
+  width: 100px;
+  padding: 1px;
+  margin-bottom: 2px;
+  border-radius: 10px;
+  border: 1px solid;
+  cursor: pointer;
+  background-color: darkcyan;
+  color: white;
+
+}
+
+.email-nav-btn:hover {
   background-color: darkcyan;
 }
-.email-nav-btn:active{
+
+/* .email-nav-btn:active {
   background-color: darkcyan;
-}
+} */
 
 .emails-main {
   display: grid;
   grid-template-columns: 200px 1fr;
   grid-template-rows: 80px 1fr;
   height: calc(100% - 60px);
+}
+.email-logo{
+  font-size: 1.5rem;
+  color: white;
 }
 
 .email-header {
@@ -101,6 +120,7 @@ body {
   /* border-top: 1px solid gray; */
   grid-template-columns: 1fr 100px;
   align-items: baseline;
+  padding-left: 5px;
 }
 
 .mail-preview {
@@ -127,8 +147,17 @@ body {
   width: 100px;
 }
 
-.filter-container {  
+.filter-container {
   display: flex;
+  height: 30px;
+  /* padding: 2px; */
+  border: 2px solid;
+}
+
+.sort-container-email{
+  height: 100%;
+  width: 180px;
+  border: 2px solid;
 }
 
 .read {
@@ -145,16 +174,47 @@ body {
   border: none;
 }
 
+/* readmail  */
+
+.readmail-inbox-btn{
+  margin-bottom: 10px;
+  background-color: #47c9af;
+  padding: 5px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.readmail-section {
+  display: flex;
+  height: calc(100% - 90px);
+  /* justify-content: center; */
+  align-items: center;
+  flex-direction: column;
+  margin-top: 30px
+}
+
+.reademail-container {
+  width: 50%;
+  border: 1px solid;
+  padding: 2;
+  padding: 1px;
+}
+
 .reademail-subject {
+  padding: 2px;
   font-size: 1.5rem;
   width: 100%;
   border-bottom: 1px solid black;
   display: flex;
-  justify-content: space-between
+  justify-content: space-between;
 }
 
-.from {
-  border-bottom: 1px solid black;
+.readmail-body {
+  min-height: 300px;
+  max-height: 350px;
+  overflow-y: auto;
+  overflow-wrap: break-word;
+  padding: 6px;
 }
 
 /* new email */
@@ -169,12 +229,16 @@ body {
   grid-template-rows: 30px 1fr 35px;
   width: 50%;
   height: 380px;
+  border: 2px solid;
+}
+
+.new-email-compose>*:not(:last-child) {
+  border-bottom: 2px solid;
 }
 
 .email-buttons-container {
   display: flex;
   justify-content: space-between;
-  /* border-bottom: 1px solid black; */
   padding: 5px;
 }
 
@@ -319,7 +383,6 @@ img{
 }
 */
 
-
 @import url(http://fonts.googleapis.com/css?family=Raleway);
 #cssmenu, #cssmenu ul, #cssmenu ul li, #cssmenu ul li a {
   margin: 0;
@@ -431,14 +494,15 @@ img{
   display: flex;
 } */
 
-main {
-  /* display: flex; */
+/* main {
+   display: flex; 
 }
 
 .emailNav {
-  /* display: flex; */
-  /* flex-direction: row; */
-}
+   display: flex; 
+  flex-direction: row; 
+} 
+*/
 
 .Notes-container {
   /* display: grid; */
@@ -452,7 +516,6 @@ main {
 }
 
 .note {
- 
   border-color: #e0e0e0;
   border-radius: 20px;
   border: 1px solid;
@@ -468,8 +531,6 @@ main {
   display: inline-block;
 }
 
-
-
 .clickable-item:hover {
   cursor: pointer;
 }
@@ -484,49 +545,49 @@ main {
   font-size: 14px;
 }
 
-.note-img{
+.note-img {
   margin-left: auto;
   margin-right: auto;
   display: block;
-
 }
-.notes-input{
 
+.notes-input {
   border: none
 }
 
-.note-add-container{
-background-color: lightgray;
-height: 80px;
-
-display: flex;
-justify-content: center;
-align-items: center;
+.note-add-container {
+  background-color: lightgray;
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.form-container{
-align-items: center;
-display: flex;
-background-color: white;
-width: 50%;
-height: 50%;
-justify-content: space-around;
+.form-container {
+  align-items: center;
+  display: flex;
+  background-color: white;
+  width: 50%;
+  height: 50%;
+  justify-content: space-around;
 }
 
-.note-add-input{
-border: none;
-font-size: 16px;
-width: 52%
+.note-add-input {
+  border: none;
+  font-size: 16px;
+  width: 52%
 }
 
-.note-add-buttons-container{
+.note-add-buttons-container {
   display: flex;
   justify-content: center;
 }
+
 .emailNav {
   display: flex;
   flex-direction: row;
 }
+
 /* 
 .Notes-container {
   display: grid;
@@ -537,50 +598,44 @@ width: 52%
 
 } */
 
-.note-button-img{
-
+.note-button-img {
   height: 30px;
-
 }
 
-.note-button:hover{
-
- background-color: lightgray;
+.note-button:hover {
+  background-color: lightgray;
   cursor: pointer;
 }
-.note-button{
-  text-decoration: none;
-    list-style: none;
-    box-shadow: none;
-    border: none;
-    background-color: white;
 
+.note-button {
+  text-decoration: none;
+  list-style: none;
+  box-shadow: none;
+  border: none;
+  background-color: white;
 }
 
-
-
-.note-content{
+.note-content {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding-top:8px
+  padding-top: 8px
 }
 
-
-.note-label{
+.note-label {
   font-size: 16px;
   border-bottom: black 1px solid;
   margin-bottom: 5px;
   width: 100%;
 }
 
-.note-controller-img{
+.note-controller-img {
   filter: invert(1);
   height: 23px;
 }
 
-.note-controller button{
+.note-controller button {
   background-color: inherit;
   text-decoration: none;
   list-style: none;
@@ -588,79 +643,76 @@ width: 52%
   border: none;
 }
 
-.note-controller-img:hover{
+.note-controller-img:hover {
   filter: invert(0);
   cursor: pointer;
 }
 
-
-.note-search-container{
-  
+.note-search-container {
   height: 80px;
   margin-bottom: 30px;
   display: flex;
   justify-content: center;
   align-items: center;
-
 }
 
-.color-input{
-opacity: 0;
-width: 100%;
-height: 100%;
+.color-input {
+  opacity: 0;
+  width: 100%;
+  height: 100%;
 }
 
-.color-div{
-
-
-    display: inline-block;
-    background: url(/img/icons8-paint-palette-48.png) no-repeat;
-    background-position: center;
-    height: 27px;
-    width: 34px;
-    background-color: inherit;
-    filter: invert(1);
+.color-div {
+  display: inline-block;
+  background: url(/img/icons8-paint-palette-48.png) no-repeat;
+  background-position: center;
+  height: 27px;
+  width: 34px;
+  background-color: inherit;
+  filter: invert(1);
 }
 
-.color-div:hover{
+.color-div:hover {
   filter: invert(0);
   cursor: pointer;
 }
-.color-input:hover{
 
+.color-input:hover {
   cursor: pointer;
 }
-.note-controller-img{
+
+.note-controller-img {
   filter: invert(1);
   height: 23px;
 }
 
-.note-controller-img-false{
+.note-controller-img-false {
   filter: invert(1);
   height: 23px;
 }
 
-.note-controller-img-true{
+.note-controller-img-true {
   filter: invert(0);
   height: 23px;
 }
 
-.note-controller-img-false:hover{
+.note-controller-img-false:hover {
   filter: invert(0);
   cursor: pointer;
 }
-.note-controller-img-true:hover{
+
+.note-controller-img-true:hover {
   filter: invert(1);
   cursor: pointer;
 }
 
-#map{
+#map {
   height: 50%;
   width: 300px;
   position: absolute;
-    overflow: hidden;
-
+  overflow: hidden;
 }
+
 
 
 /* 
@@ -673,7 +725,6 @@ left: 0;
 width: 100%;
 height: 100%;
 } */
-
 
 /* .note {
   background-color: lightblue;
