@@ -13,7 +13,7 @@ export default class EmailApp extends React.Component {
 
         filterBy: {
             readingState: 'all',
-            title:'',            
+            title: '',
             folder: 'inbox'
         },
         // sortBy:{
@@ -30,66 +30,73 @@ export default class EmailApp extends React.Component {
     }
 
 
-    loadEmails = () => {       
-        emailService.getEmailsToRender(this.state.filterBy,this.state.sortBy).then(emails=>this.setState({emails}))
-        
+    loadEmails = () => {
+        emailService.getEmailsToRender(this.state.filterBy, this.state.sortBy).then(emails => this.setState({ emails }))
+
     }
-    onDelete=(id)=>{
-        emailService.deleteEmail(id).then(emails=>this.loadEmails())
+    onDelete = (id) => {
+        emailService.deleteEmail(id).then(emails => this.loadEmails())
 
     }
 
     onSetFilter = (filter) => {
-        this.setState(prevState=>({filterBy:{...prevState.filterBy,...filter}}),this.loadEmails)
+        this.setState(prevState => ({ filterBy: { ...prevState.filterBy, ...filter } }), this.loadEmails)
     }
 
-    onChangeMark=(id)=>{
+    onChangeMark = (id) => {
         emailService.changeReadState(id).then(emails => this.loadEmails())
     }
 
-    onFavoriteMark=(id)=>{        
-        
+    onFavoriteMark = (id) => {
+
         emailService.changeFavoriteState(id).then(emails => this.loadEmails())
 
     }
 
-    setFolder=(folderName)=>{
-        this.onSetFilter({folder:folderName})        
-        
+    setFolder = (folderName) => {
+        this.onSetFilter({ folder: folderName })
+
     }
 
     // addActive=()=>{
     //     return 'active'
     // }
 
-    onSetSort=(sort)=>{
-        this.setState({sortBy:sort},this.loadEmails)
+    onSetSort = (sort) => {
+        this.setState({ sortBy: sort }, this.loadEmails)
         // this.setState(prevState=>({sortBy:{...prevState.sortBy,...sort}}),this.loadEmails)
+
+    }
+
+    toggleMenu = () => {
+        const elNavBar = document.querySelector('.email-nav')
+        elNavBar.classList.toggle('show-email-menu')
 
     }
 
 
     render() {
-        console.log(this.state.emails)
         
+
         return <div className="emails-main">
             <div className="email-header">
-                <div className="email-logo">Mr.Email</div>                
+                <button className="hamburger" onClick={this.toggleMenu}><i className="fas fa-bars"></i></button>
+                <div className="email-logo">Mr.Email</div>
                 <Filter filterBy={this.state.filterBy} onSetFilter={this.onSetFilter}></Filter>
                 <Sort onSetSort={this.onSetSort}>Sort</Sort>
             </div>
-            
+
 
             <NavBar folder={this.state.filterBy.folder} setFolder={this.setFolder} getAllEmails={this.loadEmails}></NavBar>
             <div className="emails-container">
-            {(this.state.emails) ? <EmailList folder={this.state.filterBy.folder} onFavoriteMark={this.onFavoriteMark} onChangeMark={this.onChangeMark} onDelete={this.onDelete} updateEmails={this.loadEmails} emails={this.state.emails} changeReadState={this.changeReadState}></EmailList> : "No Emails"}
+                {(this.state.emails) ? <EmailList folder={this.state.filterBy.folder} onFavoriteMark={this.onFavoriteMark} onChangeMark={this.onChangeMark} onDelete={this.onDelete} updateEmails={this.loadEmails} emails={this.state.emails} changeReadState={this.changeReadState}></EmailList> : "No Emails"}
             </div>
 
-            
+
 
         </div>
-            
-        
+
+
     }
 
 }

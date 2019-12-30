@@ -11,8 +11,7 @@ export default class Filter extends React.Component {
         this.setState(prevState => ({ filterBy: { ...prevState.filterBy, [field]: value } }))
     }
 
-    onFilterClick = () => {
-        console.log(this.state);
+    onFilterClick = () => {        
         
         this.props.onSetFilter(this.state.filterBy)
     }
