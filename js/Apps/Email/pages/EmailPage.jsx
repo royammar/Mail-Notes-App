@@ -21,7 +21,7 @@ export default class EmailPage extends React.Component {
         }
     }
     componentWillUnmount() {
-        console.log('email details unMount')
+        
     }
 
     loadEmail() {

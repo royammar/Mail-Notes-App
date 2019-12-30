@@ -34,7 +34,55 @@ function createMail(subject, body) {
 
 function createMails(){
     const mails=[{
-        id: '123123',
+        id: getRandomID(),
+        subject: 'Wassap?',
+        body: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto, sit corporis cumque illum ea explicabo molestias quas facilis officia aspernatur error illo ipsam nemo consequuntur animi quisquam aliquid, unde magni!',
+        isRead: false,
+        isSent: false,
+        isFavorite: false,
+        isDeleted: false,
+        sentAt: Date.now() - 1000000
+    },
+    {
+        id: getRandomID(),
+        subject: 'Reagrding our last conversation',
+        body: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto, sit corporis cumque illum ea explicabo molestias quas facilis officia aspernatur error illo ipsam nemo consequuntur animi quisquam aliquid, unde magni!',
+        isRead: false,
+        isSent: false,
+        isFavorite: false,
+        isDeleted: false,
+        sentAt: Date.now() - 20000000
+    },
+    {
+        id: getRandomID(),
+        subject: 'Reagrding our last conversation',
+        body: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto, sit corporis cumque illum ea explicabo molestias quas facilis officia aspernatur error illo ipsam nemo consequuntur animi quisquam aliquid, unde magni!',
+        isRead: false,
+        isSent: false,
+        isFavorite: false,
+        isDeleted: false,
+        sentAt: Date.now() - 3567893
+    },
+    {
+        id: getRandomID(),
+        subject: 'Wassap?',
+        body: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto, sit corporis cumque illum ea explicabo molestias quas facilis officia aspernatur error illo ipsam nemo consequuntur animi quisquam aliquid, unde magni!',
+        isRead: false,
+        isSent: false,
+        isFavorite: false,
+        isDeleted: false,
+        sentAt: Date.now() - 100000000000
+    },{
+        id: getRandomID(),
+        subject: 'Wassap?',
+        body: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto, sit corporis cumque illum ea explicabo molestias quas facilis officia aspernatur error illo ipsam nemo consequuntur animi quisquam aliquid, unde magni!',
+        isRead: false,
+        isSent: false,
+        isFavorite: false,
+        isDeleted: false,
+        sentAt: Date.now() - 100000000000
+    },{
+        id: getRandomID(),
         subject: 'Wassap?',
         body: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto, sit corporis cumque illum ea explicabo molestias quas facilis officia aspernatur error illo ipsam nemo consequuntur animi quisquam aliquid, unde magni!',
         isRead: false,
@@ -43,7 +91,66 @@ function createMails(){
         isDeleted: false,
         sentAt: Date.now() - 100000000000
     },
-    
+    {
+        id: getRandomID(),
+        subject: 'Hi yael',
+        body: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto, sit corporis cumque illum ea explicabo molestias quas facilis officia aspernatur error illo ipsam nemo consequuntur animi quisquam aliquid, unde magni!',
+        isRead: false,
+        isSent: false,
+        isFavorite: false,
+        isDeleted: false,
+        sentAt: Date.now() - 100000000
+    },
+    {
+        id: getRandomID(),
+        subject: 'lorem ipsum?',
+        body: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto, sit corporis cumque illum ea explicabo molestias quas facilis officia aspernatur error illo ipsam nemo consequuntur animi quisquam aliquid, unde magni!',
+        isRead: false,
+        isSent: false,
+        isFavorite: false,
+        isDeleted: false,
+        sentAt: Date.now() - 100000000000
+    },
+    {
+        id: getRandomID(),
+        subject: 'Wassap?',
+        body: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto, sit corporis cumque illum ea explicabo molestias quas facilis officia aspernatur error illo ipsam nemo consequuntur animi quisquam aliquid, unde magni!',
+        isRead: false,
+        isSent: false,
+        isFavorite: false,
+        isDeleted: false,
+        sentAt: Date.now() - 100000000000
+    },
+    {
+        id: getRandomID(),
+        subject: 'Thank you so much',
+        body: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto, sit corporis cumque illum ea explicabo molestias quas facilis officia aspernatur error illo ipsam nemo consequuntur animi quisquam aliquid, unde magni!',
+        isRead: false,
+        isSent: false,
+        isFavorite: false,
+        isDeleted: false,
+        sentAt: Date.now() - 100000000000
+    },
+    {
+        id: getRandomID(),
+        subject: 'Wassap?',
+        body: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto, sit corporis cumque illum ea explicabo molestias quas facilis officia aspernatur error illo ipsam nemo consequuntur animi quisquam aliquid, unde magni!',
+        isRead: false,
+        isSent: false,
+        isFavorite: false,
+        isDeleted: false,
+        sentAt: Date.now() - 100000000000
+    },
+    {
+        id: getRandomID(),
+        subject: 'Wassap?',
+        body: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto, sit corporis cumque illum ea explicabo molestias quas facilis officia aspernatur error illo ipsam nemo consequuntur animi quisquam aliquid, unde magni!',
+        isRead: false,
+        isSent: false,
+        isFavorite: false,
+        isDeleted: false,
+        sentAt: Date.now() - 100000000000
+    },
     {
         id: '512515',
         subject: 'Wassap?',
@@ -52,18 +159,18 @@ function createMails(){
         isSent: false,
         isFavorite: false,
         isDeleted: false,
-        sentAt: Date.now()
+        sentAt: Date.now()-200000000000000
     },
     
     {
         id: '51251125',
         subject: 'hi?',
-        body: 'how are you  at!',
+        body: 'how are you?',
         isRead: false,
         isSent: false,
         isFavorite: false,
         isDeleted: false,
-        sentAt: Date.now()
+        sentAt: Date.now()-4000000000000
     },
     
     {
@@ -74,29 +181,29 @@ function createMails(){
         isSent: false,
         isFavorite: false,
         isDeleted: false,
-        sentAt: Date.now()
+        sentAt: Date.now()-500000000
     },
     
     {
         id: '5121251121125',
         subject: 'where are you gouing?',
-        body: 'Paim going yo eat somethinggp!',
+        body: 'Im going to eat something!',
         isRead: false,
         isSent: false,
         isFavorite: false,
         isDeleted: false,
-        sentAt: Date.now()
+        sentAt: Date.now()-3000000000000
     },
     
     {
         id: '3311223',
-        subject: 'Wagap?',
+        subject: 'Wasap?',
         body: 'Pick up!',
         isRead: false,
         isSent: false,
         isFavorite: false,
         isDeleted: false,
-        sentAt: Date.now()
+        sentAt: Date.now()-3544758758758
     },
     
     {
@@ -107,7 +214,7 @@ function createMails(){
         isSent: false,
         isFavorite: false,
         isDeleted: false,
-        sentAt: Date.now()
+        sentAt: Date.now()-79878756454554   
     },
     ]
     storageSevice.store('emails',mails)
@@ -166,24 +273,11 @@ function deleteEmail(id, folder) {
     gMails = [...gMails]
     storageSevice.store('emails',gMails)
     return Promise.resolve(gMails)
-    // if (folder==='sent') {
-    //     gMails[curMailidx].isSent=false
-    //     mailsAfterDelete = gMails.filter(mail => mail.id !== id)
-    //     gMails=mailsAfterDelete
-
-
-    // }
-    // else {
-    //     mailsAfterDelete = gMails.filter(mail => mail.id !== id)
-    //     gMails=mailsAfterDelete
-
-    // }
-
-    // return Promise.resolve(gMails)
+    
 }
 
 function getEmailsToRender(filter, sort) {
-    // console.log(sort)
+    
 
     let filteredMails
     if (filter.readingState === 'read') {
@@ -221,7 +315,7 @@ function getEmailsToRender(filter, sort) {
 }
 
 function sortEmails(emails, sort) {
-    console.log(sort)
+    
     if (sort === 'oldToNew') {
         emails = emails.sort((email1, email2) => {
             return email1.sentAt - email2.sentAt
