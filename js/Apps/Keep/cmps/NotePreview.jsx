@@ -37,9 +37,9 @@ export default class NotePreivew extends React.Component {
                     <div className="note-content">
                         <Cmp onMarkTodoAsDone={this.props.onMarkTodoAsDone} onEditNote={this.props.onEditNote} note={this.props.note}></Cmp>
                         <div className="note-controller">
-                            <button onClick={this.handleDelete}><img className="note-controller-img" src="../../../../img/icons8-delete-bin-32.png" /></button>
-                            <button onClick={this.handlePin}><img className={"note-controller-img"+"-"+this.props.note.isPinned} src="../../../../img/icons8-pin-30.png" /></button>
-                            <button onClick={this.onDuplicateNote}><img className="note-controller-img" src="../../../../img/icons8-copy-150.png" /></button>
+                            <button onClick={this.handleDelete}><img className="note-controller-img" src="./img/icons8-delete-bin-32.png" /></button>
+                            <button onClick={this.handlePin}><img className={"note-controller-img"+"-"+this.props.note.isPinned} src="./img/icons8-pin-30.png" /></button>
+                            <button onClick={this.onDuplicateNote}><img className="note-controller-img" src="./img/icons8-copy-150.png" /></button>
                             <div className="color-div">
                             <input className="color-input"  onChange={this.onColorChange} type="color" name="color" id="color" />
                             </div>

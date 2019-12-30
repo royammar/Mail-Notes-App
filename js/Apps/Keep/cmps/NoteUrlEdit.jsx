@@ -28,11 +28,11 @@ export default class NoteUrlEdit extends React.Component {
     render() {
         return (
             <React.Fragment>
-                <button value="Yes" onClick={this.handleUrlEdit}><img  className="note-controller-img" src="../../../../img/icons8-edit-24.png" /></button>
+                <button value="Yes" onClick={this.handleUrlEdit}><img  className="note-controller-img" src="./img/icons8-edit-24.png" /></button>
                 <div id={'urlInput' + this.props.note.id} style={{ display: 'none' }}>
                       <input type="text" placeholder="Enter a URL" name="URL"  
                     onChange={this.inputChange} value={this.state.URL}></input>
-                    <button  onClick={this.handleUrlUpload}><img  className="note-controller-img" src="../../../../img/icons8-upload-96.png" /></button>
+                    <button  onClick={this.handleUrlUpload}><img  className="note-controller-img" src="./img/icons8-upload-96.png" /></button>
                 </div>
             </React.Fragment>
 

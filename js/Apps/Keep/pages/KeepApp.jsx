@@ -79,8 +79,7 @@ export default class KeepApp extends React.Component {
 
         return (
             <div className="keep-app">
-             
-                   <NoteAdd onAddNote={this.onAddNote}></NoteAdd>
+                <NoteAdd onAddNote={this.onAddNote}></NoteAdd>
                  <Filter onSetFilter={this.onSetFilter}></Filter>
                 <NoteList onMarkTodoAsDone={this.onMarkTodoAsDone} notes={this.state.notes}
                     onHandleSelect={this.onHandleSelect}
