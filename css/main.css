@@ -715,7 +715,7 @@ img{
 
 .color-div {
   display: inline-block;
-  background: url(./img/icons8-paint-palette-48.png) no-repeat;
+  background: url("../img/icons8-paint-palette-48.png") no-repeat;
   background-position: center;
   height: 27px;
   width: 34px;
