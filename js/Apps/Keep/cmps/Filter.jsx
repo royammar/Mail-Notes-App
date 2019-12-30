@@ -29,7 +29,7 @@ export default class Filter extends React.Component {
                 <option value="NoteVideo">Video</option>
                 <option value="NoteAudio">Audio</option>
             </select>
-            <button className="note-search-button" onClick={this.onFilterClick}><img className="note-search-img" src="../../../../img/icons8-search-48.png" /></button>
+            <button className="note-search-button" onClick={this.onFilterClick}><img className="note-search-img" src="./img/icons8-search-48.png" /></button>
             </div>
         </div>
     }
